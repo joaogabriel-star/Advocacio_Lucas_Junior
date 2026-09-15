@@ -1,0 +1,48 @@
+// Schema do banco de dados. Pronto para uso — só precisa de uma DATABASE_URL
+// (Postgres) definida no ambiente para virar realidade (ver README.md).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum RequestType {
+  CONSULTA_RAPIDA
+  AGENDAMENTO
+}
+
+enum RequestStatus {
+  PENDENTE
+  CONFIRMADO
+  ATENDIDO
+  CANCELADO
+}
+
+enum ConsultationPeriod {
+  MANHA
+  TARDE
+  NOITE
+}
+
+model ContactRequest {
+  id              String              @id @default(cuid())
+  name            String
+  phone           String
+  email           String?
+  area            String
+  message         String?
+  type            RequestType         @default(CONSULTA_RAPIDA)
+  preferredDate   DateTime?
+  preferredPeriod ConsultationPeriod?
+  status          RequestStatus       @default(PENDENTE)
+  source          String?             // ex: "site", "instagram", "whatsapp"
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  @@index([status])
+  @@index([preferredDate])
+}

@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f5f1e7;
+}
+
+.dot-grid {
+  background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+}
+
+.reveal {
+  animation: fadeUp 0.7s ease-out both;
+}
