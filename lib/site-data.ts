@@ -24,6 +24,7 @@ export const site = {
     instagramPrimary: "https://www.instagram.com/lucasmarcelino.adv/",
     instagramSecondary: "https://www.instagram.com/lm.advocaciaeconsultoria/",
     linktree: "https://linktr.ee/LucasMarcelino.adv",
+    jusbrasil: "https://lucas-marcelino397952.jusbrasil.com.br",
     city: "Brasília/DF",
   },
   whatsappMessage:

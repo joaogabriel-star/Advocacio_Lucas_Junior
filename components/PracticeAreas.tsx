@@ -53,9 +53,11 @@ export default function PracticeAreas() {
                       <p className="mt-3 text-base font-medium text-paper/90">
                         {area.brief}
                       </p>
-                      <p className="mt-3 text-base text-mist">
-                        {area.description}
-                      </p>
+                      <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr]">
+                        <p className="overflow-hidden text-base text-mist opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                          <span className="block pt-3">{area.description}</span>
+                        </p>
+                      </div>
                     </div>
                   </Reveal>
                 ))}

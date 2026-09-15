@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
+import { Icon } from "./icons";
 import MagneticButton from "./MagneticButton";
 
 const navLinks = [
@@ -9,22 +11,24 @@ const navLinks = [
   { href: "#faq", label: "Dúvidas" },
 ];
 
+const socialLinks = [
+  { href: site.contact.instagramPrimary, label: "Instagram", icon: "instagram" as const },
+  { href: site.contact.jusbrasil, label: "Jusbrasil", icon: "external" as const },
+];
+
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-paper/10 bg-navy-dark/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-accent/40 font-display text-sm font-semibold text-accent-light">
-            LM
-          </span>
-          <span className="hidden flex-col sm:flex">
-            <span className="font-display text-base font-semibold leading-tight text-paper">
-              {site.name}
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-mist">
-              Advocacia &amp; Consultoria
-            </span>
-          </span>
+    <header className="sticky top-0 z-40 bg-gradient-to-b from-navy-dark/95 via-navy-dark/70 to-transparent pb-6 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 pt-4">
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/logo-lm.png"
+            alt={site.brand}
+            width={124}
+            height={52}
+            priority
+            className="h-11 w-auto"
+          />
         </Link>
         <nav className="hidden items-center gap-8 text-sm md:flex">
           {navLinks.map((link) => (
@@ -37,12 +41,27 @@ export default function Header() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 border-r border-paper/15 pr-4">
+            {socialLinks.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                title={s.label}
+                className="text-paper/60 transition-colors hover:text-accent-light"
+              >
+                <Icon name={s.icon} className="h-[18px] w-[18px]" />
+              </a>
+            ))}
+          </div>
           <a
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden text-sm font-medium text-paper/70 transition-colors hover:text-accent-light sm:inline"
+            className="hidden text-sm font-medium text-paper/70 transition-colors hover:text-accent-light lg:inline"
           >
             Outras áreas do Direito
           </a>
