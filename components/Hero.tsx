@@ -1,77 +1,70 @@
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
+import HeroPortrait from "./HeroPortrait";
+import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-navy text-cream">
+    <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-navy-dark text-paper">
+      <div className="absolute inset-0">
+        <HeroPortrait />
+      </div>
+
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.08] dot-grid text-gold"
+        className="pointer-events-none absolute -left-32 top-1/3 h-80 w-80 rounded-full bg-accent/20 blur-[100px] animate-blob"
         aria-hidden
       />
-      <div
-        className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-gold/20 blur-3xl"
-        aria-hidden
-      />
-      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
-        <div className="reveal flex flex-col justify-center gap-6">
-          <span className="w-fit rounded-full border border-gold/40 bg-gold/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-gold-light">
-            Direito Imobiliário &amp; Contencioso
+
+      <div className="relative mx-auto w-full max-w-6xl px-4 pb-16 pt-40">
+        <Reveal>
+          <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent-light">
+            {site.contact.city} · {site.lawyer.credentials}
           </span>
-          <h1 className="font-serif text-4xl font-semibold leading-tight md:text-5xl">
-            Segurança jurídica para o seu patrimônio, do início ao cumprimento
-            de sentença.
-          </h1>
-          <p className="max-w-md text-cream/85">
-            Atendimento estratégico e transparente em ações imobiliárias,
-            locação, despejo, cobranças e execuções — presencial ou 100%
-            online, em todo o Brasil.
+        </Reveal>
+
+        <Reveal delay={80}>
+          <p className="mt-6 font-display text-lg text-mist md:text-xl">
+            Seja bem-vindo(a). Eu sou
           </p>
-          <div className="flex flex-wrap items-center gap-3">
+        </Reveal>
+
+        <Reveal delay={140}>
+          <h1 className="mt-1 font-display text-5xl font-semibold leading-[0.95] tracking-tight md:text-7xl">
+            Lucas
+            <br />
+            Marcelino.
+          </h1>
+        </Reveal>
+
+        <Reveal delay={220}>
+          <p className="mt-6 max-w-lg text-paper/80">
+            Advogado especializado em Direito Imobiliário, contencioso e
+            execução patrimonial. Atendimento direto, sem intermediários,
+            do primeiro contato ao cumprimento de sentença.
+          </p>
+        </Reveal>
+
+        <Reveal delay={300}>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#agendar"
-              className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy-dark shadow-lg shadow-gold/20 transition-transform hover:scale-105"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-navy-dark transition-transform hover:-translate-y-0.5 hover:bg-accent-light"
             >
-              Agendar Consultoria
+              Agendar consultoria
+              <span className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
             </a>
             <a
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-gold hover:text-gold"
+              className="inline-flex items-center gap-2 rounded-full border border-paper/25 px-6 py-3 text-sm font-semibold transition-colors hover:border-accent hover:text-accent-light"
             >
-              Falar agora no WhatsApp
+              Falar no WhatsApp
             </a>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-xs text-cream/70">
-            <span>{site.lawyer.credentials}</span>
-            <span>+5 anos em Direito Imobiliário</span>
-            <span>Atendimento presencial e online</span>
-          </div>
-        </div>
-        <div className="reveal flex items-center justify-center" style={{ animationDelay: "120ms" }}>
-          <div className="relative w-full max-w-sm rounded-2xl border border-gold/25 bg-navy-light/60 p-6 shadow-2xl backdrop-blur">
-            <p className="font-serif text-lg text-gold-light">
-              Será um prazer atendê-lo(a).
-            </p>
-            <p className="mt-3 text-sm text-cream/80">
-              {site.lawyer.fullName} — {site.lawyer.credentials}
-            </p>
-            <ul className="mt-4 space-y-2 text-sm text-cream/75">
-              {site.lawyer.highlights.slice(0, 3).map((h) => (
-                <li key={h} className="flex gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#agendar"
-              className="mt-6 block rounded-lg bg-gold py-2.5 text-center text-sm font-semibold text-navy-dark transition-transform hover:scale-[1.02]"
-            >
-              Quero agendar minha consultoria
-            </a>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

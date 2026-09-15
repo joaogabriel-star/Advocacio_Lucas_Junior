@@ -63,9 +63,9 @@ export default function BookingForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-xl border border-gold/30 bg-white p-8 text-center shadow-sm">
-        <h3 className="font-serif text-2xl text-navy">Pedido recebido!</h3>
-        <p className="mt-2 text-charcoal/80">
+      <div className="rounded-2xl border border-accent/25 bg-navy-dark p-8 text-center">
+        <h3 className="font-display text-2xl text-paper">Pedido recebido!</h3>
+        <p className="mt-2 text-mist">
           Retornaremos em breve para confirmar. Se preferir uma resposta mais
           rápida, fale agora pelo WhatsApp.
         </p>
@@ -75,7 +75,7 @@ export default function BookingForm() {
           )}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-block rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy-dark"
+          className="mt-5 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-navy-dark"
         >
           Confirmar pelo WhatsApp
         </a>
@@ -84,13 +84,13 @@ export default function BookingForm() {
   }
 
   return (
-    <div className="rounded-xl border border-navy/10 bg-white p-6 shadow-sm md:p-8">
-      <div className="mb-6 flex rounded-full bg-cream p-1 text-sm font-semibold">
+    <div className="rounded-2xl border border-paper/10 bg-navy-dark p-6 md:p-8">
+      <div className="mb-6 flex rounded-full bg-navy-light p-1 text-sm font-semibold">
         <button
           type="button"
           onClick={() => setMode("AGENDAMENTO")}
           className={`flex-1 rounded-full py-2 transition-colors ${
-            mode === "AGENDAMENTO" ? "bg-navy text-gold" : "text-navy/60"
+            mode === "AGENDAMENTO" ? "bg-accent text-navy-dark" : "text-paper/60"
           }`}
         >
           Agendar consultoria
@@ -99,7 +99,7 @@ export default function BookingForm() {
           type="button"
           onClick={() => setMode("CONSULTA_RAPIDA")}
           className={`flex-1 rounded-full py-2 transition-colors ${
-            mode === "CONSULTA_RAPIDA" ? "bg-navy text-gold" : "text-navy/60"
+            mode === "CONSULTA_RAPIDA" ? "bg-accent text-navy-dark" : "text-paper/60"
           }`}
         >
           Só tenho uma dúvida
@@ -124,13 +124,13 @@ export default function BookingForm() {
             placeholder="voce@email.com"
           />
           <div>
-            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-charcoal/70">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-mist">
               Área do caso
             </label>
             <select
               name="area"
               required
-              className="w-full rounded-lg border border-navy/15 bg-cream/40 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+              className="w-full rounded-lg border border-paper/15 bg-navy-surface px-3 py-2 text-sm text-paper placeholder:text-mist/50 focus:border-accent focus:outline-none"
             >
               <option value="">Selecione</option>
               {site.practiceAreas.map((a) => (
@@ -148,7 +148,7 @@ export default function BookingForm() {
         {mode === "AGENDAMENTO" && (
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-charcoal/70">
+              <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-mist">
                 Data preferida
               </label>
               <input
@@ -156,17 +156,17 @@ export default function BookingForm() {
                 name="preferredDate"
                 min={new Date().toISOString().split("T")[0]}
                 required
-                className="w-full rounded-lg border border-navy/15 bg-cream/40 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+                className="w-full rounded-lg border border-paper/15 bg-navy-surface px-3 py-2 text-sm text-paper placeholder:text-mist/50 focus:border-accent focus:outline-none"
               />
             </div>
             <div>
-              <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-charcoal/70">
+              <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-mist">
                 Período
               </label>
               <select
                 name="preferredPeriod"
                 required
-                className="w-full rounded-lg border border-navy/15 bg-cream/40 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+                className="w-full rounded-lg border border-paper/15 bg-navy-surface px-3 py-2 text-sm text-paper placeholder:text-mist/50 focus:border-accent focus:outline-none"
               >
                 {periods.map((p) => (
                   <option key={p.value} value={p.value}>
@@ -179,19 +179,19 @@ export default function BookingForm() {
         )}
 
         <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-charcoal/70">
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-mist">
             Conte um pouco do seu caso
           </label>
           <textarea
             name="message"
             rows={3}
             placeholder="Ex: recebi uma notificação de despejo e preciso de orientação..."
-            className="w-full rounded-lg border border-navy/15 bg-cream/40 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+            className="w-full rounded-lg border border-paper/15 bg-navy-surface px-3 py-2 text-sm text-paper placeholder:text-mist/50 focus:border-accent focus:outline-none"
           />
         </div>
 
         {status === "error" && (
-          <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+          <p className="rounded-lg border border-red-400/30 bg-red-400/10 px-3 py-2 text-sm text-red-300">
             {errorMsg}
           </p>
         )}
@@ -199,7 +199,7 @@ export default function BookingForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-full bg-gold py-3 text-sm font-semibold text-navy-dark transition-transform hover:scale-[1.01] disabled:opacity-60"
+          className="w-full rounded-full bg-accent py-3 text-sm font-semibold text-navy-dark transition-transform hover:-translate-y-0.5 hover:bg-accent-light disabled:opacity-60"
         >
           {status === "loading"
             ? "Enviando..."
@@ -207,13 +207,13 @@ export default function BookingForm() {
               ? "Solicitar agendamento"
               : "Enviar pergunta"}
         </button>
-        <p className="text-center text-xs text-charcoal/60">
+        <p className="text-center text-xs text-mist">
           Resposta mais rápida?{" "}
           <a
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-gold-dark underline"
+            className="font-semibold text-accent-light underline"
           >
             Fale direto no WhatsApp
           </a>
@@ -238,7 +238,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-charcoal/70">
+      <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-mist">
         {label}
       </label>
       <input
@@ -246,7 +246,7 @@ function Field({
         name={name}
         required={required}
         placeholder={placeholder}
-        className="w-full rounded-lg border border-navy/15 bg-cream/40 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+        className="w-full rounded-lg border border-paper/15 bg-navy-surface px-3 py-2 text-sm text-paper placeholder:text-mist/50 focus:border-accent focus:outline-none"
       />
     </div>
   );

@@ -10,53 +10,46 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40">
-      <div className="bg-gold text-navy-dark">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 text-sm">
-          <p className="font-medium">
-            Precisa de ajuda com outras matérias do Direito?
-          </p>
+    <header className="sticky top-0 z-40 border-b border-paper/10 bg-navy-dark/80 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+        <Link href="/" className="flex items-center gap-2">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-accent/40 font-display text-sm font-semibold text-accent-light">
+            LM
+          </span>
+          <span className="hidden flex-col sm:flex">
+            <span className="font-display text-base font-semibold leading-tight text-paper">
+              {site.name}
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-mist">
+              Advocacia &amp; Consultoria
+            </span>
+          </span>
+        </Link>
+        <nav className="hidden items-center gap-8 text-sm md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-paper/70 transition-colors hover:text-accent-light"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-3">
           <a
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="whitespace-nowrap rounded-full border border-navy-dark/70 px-3 py-1 font-semibold transition-colors hover:bg-navy-dark hover:text-gold"
+            className="hidden text-sm font-medium text-paper/70 transition-colors hover:text-accent-light sm:inline"
           >
-            Falar com um Advogado
+            Outras áreas do Direito
           </a>
-        </div>
-      </div>
-      <div className="bg-navy text-cream">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-serif text-2xl font-semibold tracking-wide text-gold">
-              LM
-            </span>
-            <span className="hidden flex-col sm:flex">
-              <span className="font-serif text-lg leading-tight">
-                {site.name}
-              </span>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-gold-light">
-                Advocacia &amp; Consultoria
-              </span>
-            </span>
-          </Link>
-          <nav className="hidden items-center gap-6 text-sm md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-cream/90 transition-colors hover:text-gold"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
           <a
             href="#agendar"
-            className="rounded-full bg-gold px-4 py-2 text-sm font-semibold text-navy-dark transition-transform hover:scale-105"
+            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-navy-dark transition-transform hover:-translate-y-0.5 hover:bg-accent-light"
           >
-            Agendar Consultoria
+            Agendar
           </a>
         </div>
       </div>

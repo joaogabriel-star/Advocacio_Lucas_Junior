@@ -1,25 +1,27 @@
 import { site } from "@/lib/site-data";
 
 const items = [
-  { label: site.lawyer.credentials, sub: "Registro ativo" },
-  { label: "+5 anos", sub: "em Direito Imobiliário" },
-  { label: "PJe · e-SAJ · eproc · PROJUDI", sub: "Sistemas processuais" },
-  { label: "100% online ou presencial", sub: "Atendimento flexível" },
+  site.lawyer.credentials,
+  "Direito Imobiliário",
+  "PJe · e-SAJ · eproc · PROJUDI",
+  "Atendimento online ou presencial",
+  "+5 anos de atuação",
 ];
 
 export default function TrustBar() {
+  const loop = [...items, ...items];
+
   return (
-    <section className="border-y border-navy/10 bg-white py-8">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 text-center md:grid-cols-4">
-        {items.map((item) => (
-          <div key={item.label}>
-            <p className="font-serif text-base font-semibold text-navy md:text-lg">
-              {item.label}
-            </p>
-            <p className="text-xs uppercase tracking-wide text-charcoal/60">
-              {item.sub}
-            </p>
-          </div>
+    <section className="overflow-hidden border-y border-paper/10 bg-navy-surface py-4">
+      <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap">
+        {loop.map((item, i) => (
+          <span
+            key={i}
+            className="flex items-center gap-10 text-sm uppercase tracking-[0.15em] text-mist"
+          >
+            {item}
+            <span className="text-accent">✦</span>
+          </span>
         ))}
       </div>
     </section>

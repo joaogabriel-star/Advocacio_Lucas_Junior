@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site-data";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
-const playfair = Playfair_Display({
+const display = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-display",
   weight: ["500", "600", "700"],
 });
 
@@ -34,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="font-sans text-navy antialiased">
+    <html lang="pt-BR" className={`${display.variable} ${inter.variable}`}>
+      <body className="bg-navy-dark font-sans text-paper antialiased">
         {children}
         <WhatsAppFloatingButton />
       </body>

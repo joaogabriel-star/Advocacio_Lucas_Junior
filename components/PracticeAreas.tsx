@@ -1,5 +1,6 @@
 import { site } from "@/lib/site-data";
 import { Icon, IconName } from "./icons";
+import Reveal from "./Reveal";
 
 export default function PracticeAreas() {
   const groups = Array.from(
@@ -7,56 +8,59 @@ export default function PracticeAreas() {
   );
 
   return (
-    <section id="areas" className="bg-cream py-16 md:py-24">
+    <section id="areas" className="bg-navy-dark py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
             Áreas de Atuação
           </span>
-          <h2 className="mt-2 font-serif text-3xl font-semibold text-navy md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-semibold text-paper md:text-4xl">
             Do contrato ao cumprimento de sentença
           </h2>
-          <p className="mt-3 text-charcoal/80">
+          <p className="mt-3 text-mist">
             Atuação especializada em Direito Imobiliário, com apoio completo
             em ações e execuções relacionadas ao seu caso.
           </p>
-        </div>
+        </Reveal>
 
-        {groups.map((group) => (
-          <div key={group} className="mt-12">
-            <h3 className="mb-5 font-serif text-xl text-navy">{group}</h3>
+        {groups.map((group, gi) => (
+          <div key={group} className="mt-14">
+            <Reveal delay={gi * 60}>
+              <h3 className="mb-6 font-display text-xl text-paper">
+                {group}
+              </h3>
+            </Reveal>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {site.practiceAreas
                 .filter((a) => a.group === group)
-                .map((area) => (
-                  <div
-                    key={area.slug}
-                    className="group rounded-xl border border-navy/10 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-gold/40 hover:shadow-lg"
-                  >
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-navy text-gold transition-colors group-hover:bg-gold group-hover:text-navy">
-                      <Icon name={area.icon as IconName} className="h-5 w-5" />
+                .map((area, i) => (
+                  <Reveal key={area.slug} delay={i * 80}>
+                    <div className="group h-full rounded-2xl border border-paper/10 bg-navy-surface p-6 transition-all hover:-translate-y-1 hover:border-accent/40 hover:bg-navy-light">
+                      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full border border-accent/30 text-accent-light transition-colors group-hover:bg-accent group-hover:text-navy-dark">
+                        <Icon name={area.icon as IconName} className="h-5 w-5" />
+                      </div>
+                      <h4 className="font-display text-lg font-semibold text-paper">
+                        {area.title}
+                      </h4>
+                      <p className="mt-2 text-sm text-mist">
+                        {area.description}
+                      </p>
                     </div>
-                    <h4 className="font-serif text-lg font-semibold text-navy">
-                      {area.title}
-                    </h4>
-                    <p className="mt-2 text-sm text-charcoal/75">
-                      {area.description}
-                    </p>
-                  </div>
+                  </Reveal>
                 ))}
             </div>
           </div>
         ))}
 
-        <div className="mt-12 rounded-xl border border-gold/30 bg-navy/5 p-6 text-center">
-          <p className="text-sm text-charcoal/80">{site.otherAreasNote}</p>
+        <Reveal className="mt-14 rounded-2xl border border-accent/20 bg-navy-surface p-8 text-center">
+          <p className="text-mist">{site.otherAreasNote}</p>
           <a
             href="#agendar"
-            className="mt-3 inline-block rounded-full bg-navy px-5 py-2 text-sm font-semibold text-gold transition-transform hover:scale-105"
+            className="mt-4 inline-block rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-navy-dark transition-transform hover:-translate-y-0.5 hover:bg-accent-light"
           >
             Falar sobre meu caso
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
