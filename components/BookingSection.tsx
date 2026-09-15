@@ -9,15 +9,15 @@ export default function BookingSection() {
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
             Fale Comigo
           </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-paper md:text-4xl">
+          <h2 className="mt-3 font-display text-4xl font-semibold text-paper md:text-5xl">
             Quanto antes você falar sobre seu caso, mais opções você tem.
           </h2>
-          <p className="mt-4 text-paper/75">
+          <p className="mt-4 text-lg text-paper/75">
             Prazos processuais não esperam. Agende sua consultoria inicial e
-            saia com um diagnóstico claro do seu caso e dos próximos passos —
-            sem enrolação, com atendimento direto do Dr. Lucas.
+            saia com um diagnóstico claro do seu caso e dos próximos passos,
+            sem enrolação e com atendimento direto do Dr. Lucas.
           </p>
-          <ul className="mt-6 space-y-3 text-sm text-mist">
+          <ul className="mt-6 space-y-3 text-base text-mist">
             <li className="flex gap-2">
               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
               Resposta rápida pelo WhatsApp, o mesmo canal que você já usa.

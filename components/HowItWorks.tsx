@@ -33,7 +33,7 @@ export default function HowItWorks() {
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
             Como Funciona
           </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-paper">
+          <h2 className="mt-3 font-display text-4xl font-semibold text-paper">
             Três passos até sua consultoria
           </h2>
         </Reveal>
@@ -41,10 +41,10 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <Reveal key={step.n} delay={i * 100} className="relative pl-2">
               <StepNumeral n={step.n} speed={0.08 + i * 0.05} />
-              <h3 className="mt-3 font-display text-lg font-semibold text-paper">
+              <h3 className="mt-3 font-display text-xl font-semibold text-paper">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm text-mist">{step.description}</p>
+              <p className="mt-2 text-base text-mist">{step.description}</p>
             </Reveal>
           ))}
         </div>

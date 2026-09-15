@@ -45,92 +45,54 @@ export default function HeroBlueprint() {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
+        {/* Mantido apenas no canto superior direito, longe da coluna de
+            texto do hero, como um detalhe de canto — não um elemento central. */}
         <rect
-          x="70"
-          y="90"
-          width="430"
-          height="600"
+          x="430"
+          y="60"
+          width="140"
+          height="140"
           pathLength={1}
           className={reducedMotion ? "" : "blueprint-line"}
-          style={{ animationDelay: "0.1s" }}
-          opacity="0.32"
-        />
-        <path
-          d="M70 300h430"
-          pathLength={1}
-          className={reducedMotion ? "" : "blueprint-line"}
-          style={{ animationDelay: "0.95s" }}
+          style={{ animationDelay: "0.3s" }}
           opacity="0.22"
         />
         <path
-          d="M290 300v390"
+          d="M430 130h140"
           pathLength={1}
           className={reducedMotion ? "" : "blueprint-line"}
-          style={{ animationDelay: "1.3s" }}
-          opacity="0.22"
+          style={{ animationDelay: "1s" }}
+          opacity="0.16"
         />
-        <path
-          d="M70 520h220"
-          pathLength={1}
-          className={reducedMotion ? "" : "blueprint-line"}
-          style={{ animationDelay: "1.6s" }}
-          opacity="0.18"
-        />
-        <path
-          d="M290 300a95 95 0 0 1 95 95"
-          pathLength={1}
-          className={reducedMotion ? "" : "blueprint-line"}
-          style={{ animationDelay: "2s" }}
-          opacity="0.28"
-        />
-        <path
-          d="M290 300v95"
-          pathLength={1}
-          className={reducedMotion ? "" : "blueprint-line"}
-          style={{ animationDelay: "2.1s" }}
-          opacity="0.18"
-        />
-        {Array.from({ length: 9 }).map((_, i) => (
+        {Array.from({ length: 5 }).map((_, i) => (
           <line
             key={i}
-            x1={70 + i * 53.75}
-            y1="82"
-            x2={70 + i * 53.75}
-            y2="90"
+            x1={430 + i * 35}
+            y1="52"
+            x2={430 + i * 35}
+            y2="60"
             pathLength={1}
             className={reducedMotion ? "" : "blueprint-line"}
-            style={{ animationDelay: `${2.3 + i * 0.04}s` }}
-            opacity="0.35"
+            style={{ animationDelay: `${1.4 + i * 0.06}s` }}
+            opacity="0.3"
           />
         ))}
         <circle
-          cx="440"
-          cy="130"
-          r="24"
+          cx="500"
+          cy="100"
+          r="20"
           pathLength={1}
           className={reducedMotion ? "" : "blueprint-line"}
-          style={{ animationDelay: "2.7s" }}
-          opacity="0.35"
+          style={{ animationDelay: "1.8s" }}
+          opacity="0.3"
         />
         <path
-          d="M440 113v34M423 130h34"
+          d="M500 85v30M485 100h30"
           pathLength={1}
           className={reducedMotion ? "" : "blueprint-line"}
-          style={{ animationDelay: "2.9s" }}
-          opacity="0.35"
+          style={{ animationDelay: "2s" }}
+          opacity="0.3"
         />
-        <text
-          x="90"
-          y="710"
-          fontSize="11"
-          letterSpacing="2"
-          fill="#4FA8FF"
-          stroke="none"
-          opacity={reducedMotion ? 0.3 : 0}
-          className={reducedMotion ? "" : "blueprint-caption"}
-        >
-          PLANTA · ESC 1:100
-        </text>
       </g>
     </svg>
   );

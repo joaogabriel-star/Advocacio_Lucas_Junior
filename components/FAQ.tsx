@@ -13,7 +13,7 @@ export default function FAQ() {
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
             Dúvidas Frequentes
           </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-paper">
+          <h2 className="mt-3 font-display text-4xl font-semibold text-paper">
             Perguntas antes de agendar
           </h2>
         </Reveal>
@@ -23,7 +23,7 @@ export default function FAQ() {
               key={item.q}
               className="group border-l-2 border-transparent p-5 transition-colors [&[open]]:border-l-accent"
             >
-              <summary className="flex cursor-pointer list-none items-start gap-4 font-display text-base font-semibold text-paper">
+              <summary className="flex cursor-pointer list-none items-start gap-4 font-display text-lg font-semibold text-paper">
                 <span className="mt-0.5 shrink-0 text-xs font-normal tracking-[0.15em] text-accent/50">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -32,7 +32,7 @@ export default function FAQ() {
                   +
                 </span>
               </summary>
-              <p className="mt-3 pl-8 text-sm text-mist">{item.a}</p>
+              <p className="mt-3 pl-8 text-base text-mist">{item.a}</p>
             </details>
           ))}
         </Reveal>

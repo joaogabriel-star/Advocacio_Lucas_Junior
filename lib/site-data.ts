@@ -8,13 +8,13 @@ export const site = {
     fullName: "Dr. Lucas Marcelino",
     credentials: "OAB/DF 80487",
     bio:
-      "Advogado graduado pela Universidade Católica de Brasília, pós-graduado em Direito Tributário pela ESA. Atua de forma estratégica na advocacia contenciosa e consultiva, com ênfase na fase de execução processual — cumprimento de sentença, impugnações, bloqueios, penhoras e demais medidas de constrição patrimonial. Mais de 5 anos de atuação em Direito Imobiliário, com domínio dos principais sistemas processuais eletrônicos (PJe, e-SAJ, eproc e PROJUDI).",
+      "Advogado graduado pela Universidade Católica de Brasília, pós-graduado em Direito Tributário pela ESA. Atua de forma estratégica na advocacia contenciosa e consultiva, com ênfase na fase de execução processual: cumprimento de sentença, impugnações, bloqueios, penhoras e demais medidas de constrição patrimonial. Mais de 5 anos de atuação em Direito Imobiliário, com domínio dos principais sistemas processuais eletrônicos (PJe, e-SAJ, eproc e PROJUDI).",
     highlights: [
-      "Bacharel em Direito — Universidade Católica de Brasília",
-      "Pós-graduado em Direito Tributário — ESA",
+      "Bacharel em Direito, Universidade Católica de Brasília",
+      "Pós-graduado em Direito Tributário, ESA",
       "+5 anos de atuação em Direito Imobiliário",
-      "Correspondente Jurídico — Diário Cursos Jurídicos",
-      "Formação em Atendimento ao Cliente e Comunicação — Sebrae",
+      "Correspondente Jurídico, Diário Cursos Jurídicos",
+      "Formação em Atendimento ao Cliente e Comunicação, Sebrae",
     ],
   },
   contact: {
@@ -32,6 +32,8 @@ export const site = {
     {
       slug: "locacao-despejo",
       title: "Locação e Despejo",
+      brief:
+        "Recupero seu imóvel ou renegocio o contrato sem meses de desgaste com o inquilino.",
       description:
         "Ações de locação de imóveis, despejo, revisional e renovatória de contratos comerciais e residenciais.",
       icon: "key",
@@ -40,6 +42,8 @@ export const site = {
     {
       slug: "leiloes-incorporacoes",
       title: "Leilões e Incorporações",
+      brief:
+        "Segurança jurídica completa, da arrematação em leilão até a entrega das chaves.",
       description:
         "Leilão de imóveis, incorporações imobiliárias e adjudicação compulsória.",
       icon: "building",
@@ -48,6 +52,8 @@ export const site = {
     {
       slug: "vicios-construtivos",
       title: "Vícios Construtivos",
+      brief:
+        "Identifico falhas na obra e busco a indenização pelo prejuízo que você teve.",
       description:
         "Vícios construtivos, contratos de empreitada e disputas de construção civil.",
       icon: "hammer",
@@ -56,6 +62,8 @@ export const site = {
     {
       slug: "posse-usucapiao",
       title: "Posse e Usucapião",
+      brief:
+        "Regularizo a posse do imóvel e transformo tempo de uso em propriedade de direito.",
       description:
         "Reintegração de posse, ações de usucapião e cessão de direitos possessórios.",
       icon: "shield",
@@ -64,6 +72,8 @@ export const site = {
     {
       slug: "cobrancas",
       title: "Ações de Cobrança",
+      brief:
+        "Cobro o que é seu: aluguel, taxas e contas em atraso, do jeito certo.",
       description:
         "Cobrança de aluguel, água, luz, IPTU, condomínio e execução de títulos e contratos.",
       icon: "receipt",
@@ -72,8 +82,10 @@ export const site = {
     {
       slug: "execucao-patrimonial",
       title: "Execução e Constrição Patrimonial",
+      brief:
+        "Transformo uma sentença favorável em dinheiro ou bens de fato na sua conta.",
       description:
-        "Cumprimento de sentença, impugnações, bloqueios e penhoras — foco na fase executiva do processo.",
+        "Cumprimento de sentença, impugnações, bloqueios e penhoras, com foco na fase executiva do processo.",
       icon: "gavel",
       group: "Ações e Execuções",
     },

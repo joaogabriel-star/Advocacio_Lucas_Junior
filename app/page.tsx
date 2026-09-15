@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import TrustBar from "@/components/TrustBar";
 import PracticeAreas from "@/components/PracticeAreas";
 import HowItWorks from "@/components/HowItWorks";
 import About from "@/components/About";
@@ -13,7 +12,6 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-      <TrustBar />
       <PracticeAreas />
       <HowItWorks />
       <About />

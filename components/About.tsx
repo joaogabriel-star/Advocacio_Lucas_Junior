@@ -26,20 +26,20 @@ export default function About() {
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
               Sobre o Advogado
             </span>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-paper md:text-4xl">
+            <h2 className="mt-3 font-display text-4xl font-semibold text-paper md:text-5xl">
               {site.lawyer.fullName}
             </h2>
-            <p className="mt-1 text-sm text-accent-light">
+            <p className="mt-1 text-base text-accent-light">
               {site.lawyer.credentials}
             </p>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-5 text-paper/80">{site.lawyer.bio}</p>
+            <p className="mt-5 text-lg text-paper/80">{site.lawyer.bio}</p>
           </Reveal>
           <Reveal delay={180}>
             <ul className="mt-6 grid gap-2 sm:grid-cols-2">
               {site.lawyer.highlights.map((h) => (
-                <li key={h} className="flex gap-2 text-sm text-mist">
+                <li key={h} className="flex gap-2 text-base text-mist">
                   <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                   <span>{h}</span>
                 </li>

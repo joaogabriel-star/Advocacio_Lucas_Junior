@@ -33,15 +33,10 @@ const config: Config = {
           "0%, 100%": { transform: "scale(1)" },
           "50%": { transform: "scale(1.06)" },
         },
-        marquee: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
       },
       animation: {
         fadeUp: "fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) both",
         pulseSoft: "pulseSoft 2.4s ease-in-out infinite",
-        marquee: "marquee 28s linear infinite",
       },
     },
   },
