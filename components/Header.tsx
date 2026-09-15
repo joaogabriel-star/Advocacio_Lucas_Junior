@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
+import MagneticButton from "./MagneticButton";
 
 const navLinks = [
   { href: "#areas", label: "Áreas de Atuação" },
@@ -45,12 +46,13 @@ export default function Header() {
           >
             Outras áreas do Direito
           </a>
-          <a
+          <MagneticButton
             href="#agendar"
-            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-navy-dark transition-transform hover:-translate-y-0.5 hover:bg-accent-light"
+            strength={8}
+            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-navy-dark hover:bg-accent-light"
           >
             Agendar
-          </a>
+          </MagneticButton>
         </div>
       </div>
     </header>

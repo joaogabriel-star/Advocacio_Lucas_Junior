@@ -13,6 +13,7 @@ export const contactRequestSchema = z.object({
   type: z.enum(["CONSULTA_RAPIDA", "AGENDAMENTO"]),
   preferredDate: z.string().optional(), // ISO date string, only for AGENDAMENTO
   preferredPeriod: z.enum(["MANHA", "TARDE", "NOITE"]).optional(),
+  website: z.string().optional().or(z.literal("")), // honeypot anti-spam
 });
 
 export type ContactRequestInput = z.infer<typeof contactRequestSchema>;

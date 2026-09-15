@@ -1,6 +1,9 @@
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
+import AnimatedHeadline from "./AnimatedHeadline";
+import HeroBlueprint from "./HeroBlueprint";
 import HeroPortrait from "./HeroPortrait";
+import MagneticButton from "./MagneticButton";
 import Reveal from "./Reveal";
 
 export default function Hero() {
@@ -10,10 +13,7 @@ export default function Hero() {
         <HeroPortrait />
       </div>
 
-      <div
-        className="pointer-events-none absolute -left-32 top-1/3 h-80 w-80 rounded-full bg-accent/20 blur-[100px] animate-blob"
-        aria-hidden
-      />
+      <HeroBlueprint />
 
       <div className="relative mx-auto w-full max-w-6xl px-4 pb-16 pt-40">
         <Reveal>
@@ -28,13 +28,11 @@ export default function Hero() {
           </p>
         </Reveal>
 
-        <Reveal delay={140}>
-          <h1 className="mt-1 font-display text-5xl font-semibold leading-[0.95] tracking-tight md:text-7xl">
-            Lucas
-            <br />
-            Marcelino.
-          </h1>
-        </Reveal>
+        <h1 className="mt-1 font-display text-5xl font-semibold leading-[0.95] tracking-tight md:text-7xl">
+          <AnimatedHeadline text="Lucas" delay={160} />
+          <br />
+          <AnimatedHeadline text="Marcelino." delay={420} />
+        </h1>
 
         <Reveal delay={220}>
           <p className="mt-6 max-w-lg text-paper/80">
@@ -46,23 +44,23 @@ export default function Hero() {
 
         <Reveal delay={300}>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
+            <MagneticButton
               href="#agendar"
-              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-navy-dark transition-transform hover:-translate-y-0.5 hover:bg-accent-light"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-navy-dark hover:bg-accent-light"
             >
               Agendar consultoria
               <span className="transition-transform group-hover:translate-x-1">
                 →
               </span>
-            </a>
-            <a
+            </MagneticButton>
+            <MagneticButton
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-paper/25 px-6 py-3 text-sm font-semibold transition-colors hover:border-accent hover:text-accent-light"
+              className="inline-flex items-center gap-2 rounded-full border border-paper/25 px-6 py-3 text-sm font-semibold hover:border-accent hover:text-accent-light"
             >
               Falar no WhatsApp
-            </a>
+            </MagneticButton>
           </div>
         </Reveal>
       </div>

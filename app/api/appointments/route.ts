@@ -1,6 +1,23 @@
+import { timingSafeEqual } from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { contactRequestSchema } from "@/lib/validation";
+import { rateLimit } from "@/lib/rateLimit";
+
+function safeCompare(a: string, b: string) {
+  const bufA = Buffer.from(a);
+  const bufB = Buffer.from(b);
+  if (bufA.length !== bufB.length) return false;
+  return timingSafeEqual(bufA, bufB);
+}
+
+function getClientIp(req: NextRequest) {
+  return (
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "unknown"
+  );
+}
 
 export async function POST(req: NextRequest) {
   if (!process.env.DATABASE_URL) {
@@ -10,6 +27,14 @@ export async function POST(req: NextRequest) {
           "Banco de dados ainda não configurado neste ambiente. Defina DATABASE_URL para ativar o agendamento pelo site.",
       },
       { status: 503 },
+    );
+  }
+
+  const ip = getClientIp(req);
+  if (!rateLimit(`appointments:${ip}`, 5, 10 * 60 * 1000)) {
+    return NextResponse.json(
+      { error: "Muitas solicitações. Tente novamente em alguns minutos." },
+      { status: 429 },
     );
   }
 
@@ -24,6 +49,11 @@ export async function POST(req: NextRequest) {
   }
 
   const data = parsed.data;
+
+  // honeypot: campo invisível que só bots preenchem
+  if (data.website) {
+    return NextResponse.json({ id: "ok" }, { status: 201 });
+  }
 
   const created = await prisma.contactRequest.create({
     data: {
@@ -49,8 +79,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Banco não configurado" }, { status: 503 });
   }
 
-  const adminKey = req.headers.get("x-admin-key");
-  if (!process.env.ADMIN_API_KEY || adminKey !== process.env.ADMIN_API_KEY) {
+  const adminKey = req.headers.get("x-admin-key") || "";
+  if (!process.env.ADMIN_API_KEY || !safeCompare(adminKey, process.env.ADMIN_API_KEY)) {
     return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
   }
 

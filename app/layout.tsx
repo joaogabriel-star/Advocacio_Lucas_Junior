@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site-data";
+import { siteUrl } from "@/lib/site-url";
+import CustomCursor from "@/components/CustomCursor";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
 const display = Space_Grotesk({
@@ -16,6 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: `${site.brand} | Advocacia Imobiliária em Brasília`,
   description:
     "Escritório de advocacia especializado em Direito Imobiliário, ações de locação, despejo, execuções e cobranças em Brasília/DF. Agende sua consultoria.",
@@ -36,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${display.variable} ${inter.variable}`}>
       <body className="bg-navy-dark font-sans text-paper antialiased">
+        <CustomCursor />
         {children}
         <WhatsAppFloatingButton />
       </body>

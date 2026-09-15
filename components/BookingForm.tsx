@@ -33,6 +33,7 @@ export default function BookingForm() {
       type: mode,
       preferredDate: mode === "AGENDAMENTO" ? String(form.get("preferredDate") || "") : undefined,
       preferredPeriod: mode === "AGENDAMENTO" ? (form.get("preferredPeriod") as string) || undefined : undefined,
+      website: String(form.get("website") || ""),
     };
 
     try {
@@ -107,6 +108,14 @@ export default function BookingForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="absolute left-[-9999px] h-0 w-0 opacity-0"
+        />
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Nome completo" name="name" required placeholder="Seu nome" />
           <Field

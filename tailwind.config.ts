@@ -37,17 +37,11 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
-        blob: {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "33%": { transform: "translate(4%, -6%) scale(1.08)" },
-          "66%": { transform: "translate(-3%, 4%) scale(0.96)" },
-        },
       },
       animation: {
         fadeUp: "fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) both",
         pulseSoft: "pulseSoft 2.4s ease-in-out infinite",
         marquee: "marquee 28s linear infinite",
-        blob: "blob 16s ease-in-out infinite",
       },
     },
   },

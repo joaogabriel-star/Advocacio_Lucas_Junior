@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import StepNumeral from "./StepNumeral";
 
 const steps = [
   {
@@ -23,7 +24,10 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-navy-surface py-20 md:py-24">
+    <section
+      className="noise relative overflow-hidden bg-navy-surface py-20 md:py-24"
+      style={{ "--noise-opacity": 0.03 } as React.CSSProperties}
+    >
       <div className="mx-auto max-w-6xl px-4">
         <Reveal className="mx-auto max-w-xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
@@ -36,9 +40,7 @@ export default function HowItWorks() {
         <div className="mt-14 grid gap-10 md:grid-cols-3">
           {steps.map((step, i) => (
             <Reveal key={step.n} delay={i * 100} className="relative pl-2">
-              <span className="font-display text-5xl font-semibold text-accent/25">
-                {step.n}
-              </span>
+              <StepNumeral n={step.n} speed={0.08 + i * 0.05} />
               <h3 className="mt-3 font-display text-lg font-semibold text-paper">
                 {step.title}
               </h3>

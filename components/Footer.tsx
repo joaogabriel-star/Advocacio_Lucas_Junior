@@ -3,7 +3,10 @@ import { whatsappLink } from "@/lib/whatsapp";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-paper/10 bg-navy-dark py-10 text-paper/60">
+    <footer
+      className="noise relative overflow-hidden border-t border-paper/10 bg-navy-dark py-10 text-paper/60"
+      style={{ "--noise-opacity": 0.03 } as React.CSSProperties}
+    >
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="font-display text-lg text-paper">{site.brand}</p>
