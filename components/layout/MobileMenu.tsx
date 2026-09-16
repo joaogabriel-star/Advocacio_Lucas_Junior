@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { site } from "@/lib/site-data";
 import { Icon, IconName } from "@/components/ui/icons";
 
 type NavLink = { href: string; label: string };
@@ -89,6 +90,15 @@ export default function MobileMenu({
           </nav>
 
           <div className="mt-auto space-y-5 pt-6">
+            <a
+              href={site.contact.jusbrasil}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="block text-sm text-mist transition-colors hover:text-accent"
+            >
+              Perfil no Jusbrasil
+            </a>
             <div className="flex items-center gap-5">
               {socialLinks.map((s) => (
                 <a

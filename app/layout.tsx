@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
+import { Inria_Serif } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site-data";
 import { siteUrl } from "@/lib/site-url";
 import WhatsAppFloatingButton from "@/components/layout/WhatsAppFloatingButton";
+
+// Mesma serif usada pelo Dr. Lucas no site do Google Sites.
+const inriaSerif = Inria_Serif({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -24,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={inriaSerif.variable}>
       <body className="bg-paper font-sans text-ink antialiased">
         {children}
         <WhatsAppFloatingButton />

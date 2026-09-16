@@ -1,15 +1,25 @@
 import { site } from "@/lib/site-data";
-import { Icon, IconName } from "@/components/ui/icons";
 import AreaChart from "@/components/ui/AreaChart";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
+import BackdropGraphic from "@/components/ui/BackdropGraphic";
 
 export default function PracticeAreas() {
   const { positioning } = site;
 
   return (
-    <section id="areas" className="bg-paper py-20 md:py-24">
-      <div className="mx-auto max-w-6xl px-4">
+    <section
+      id="areas"
+      className="relative overflow-hidden bg-paper py-20 md:py-24"
+    >
+      <BackdropGraphic
+        src="/images/gavel-silhouette.png"
+        className="left-1/2 top-0 h-[22rem] w-[30rem] -translate-x-1/2 md:h-[30rem] md:w-[46rem]"
+        sizes="(min-width: 768px) 46rem, 30rem"
+        opacity={0.5}
+      />
+
+      <div className="relative mx-auto max-w-6xl px-4">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             Áreas de Atuação
@@ -35,10 +45,7 @@ export default function PracticeAreas() {
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {site.practiceAreas.map((area, i) => (
               <Reveal key={area.slug} delay={i * 60}>
-                <div className="h-full rounded-md border border-line bg-paper p-7 transition-colors hover:border-accent">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-md bg-accent/10 text-accent">
-                    <Icon name={area.icon as IconName} className="h-6 w-6" />
-                  </div>
+                <div className="h-full border-t-2 border-navy bg-bone p-7 transition-colors hover:border-gold">
                   <h4 className="font-display text-xl font-bold text-navy">
                     {area.title}
                   </h4>
@@ -63,21 +70,16 @@ export default function PracticeAreas() {
             </h3>
           </Reveal>
 
-          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {site.fullServiceAreas.map((area, i) => (
               <Reveal key={area.title} delay={i * 50}>
-                <div className="flex gap-4 border-t border-line pt-5">
-                  <span className="mt-0.5 shrink-0 text-accent">
-                    <Icon name={area.icon as IconName} className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <h4 className="font-display text-lg font-bold text-navy">
-                      {area.title}
-                    </h4>
-                    <p className="mt-1.5 text-sm leading-relaxed text-mist">
-                      {area.brief}
-                    </p>
-                  </div>
+                <div className="border-t border-line pt-5">
+                  <h4 className="font-display text-lg font-bold text-navy">
+                    {area.title}
+                  </h4>
+                  <p className="mt-1.5 text-sm leading-relaxed text-mist">
+                    {area.brief}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -88,8 +90,8 @@ export default function PracticeAreas() {
           <AreaChart />
         </Reveal>
 
-        <Reveal className="mt-12 rounded-md border border-line bg-bone p-8 text-center">
-          <p className="text-mist">{site.otherAreasNote}</p>
+        <Reveal className="mt-12 border-t border-line pt-8 text-center">
+          <p className="mx-auto max-w-2xl text-mist">{site.otherAreasNote}</p>
           <Button href="#agendar" className="mt-5">
             Falar sobre meu caso
           </Button>

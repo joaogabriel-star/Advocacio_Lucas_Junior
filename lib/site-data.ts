@@ -46,7 +46,6 @@ export const site = {
         "Recupero seu imóvel ou renegocio o contrato sem meses de desgaste com o inquilino.",
       description:
         "Ações de locação de imóveis, despejo, revisional e renovatória de contratos comerciais e residenciais.",
-      icon: "key",
       group: "Direito Imobiliário",
     },
     {
@@ -56,7 +55,6 @@ export const site = {
         "Segurança jurídica completa, da arrematação em leilão até a entrega das chaves.",
       description:
         "Leilão de imóveis, incorporações imobiliárias e adjudicação compulsória.",
-      icon: "building",
       group: "Direito Imobiliário",
     },
     {
@@ -66,7 +64,6 @@ export const site = {
         "Identifico falhas na obra e busco a indenização pelo prejuízo que você teve.",
       description:
         "Vícios construtivos, contratos de empreitada e disputas de construção civil.",
-      icon: "hammer",
       group: "Direito Imobiliário",
     },
     {
@@ -76,7 +73,6 @@ export const site = {
         "Regularizo a posse do imóvel e transformo tempo de uso em propriedade de direito.",
       description:
         "Reintegração de posse, ações de usucapião e cessão de direitos possessórios.",
-      icon: "shield",
       group: "Direito Imobiliário",
     },
   ],
@@ -85,32 +81,26 @@ export const site = {
     {
       title: "Direito Civil e Contratos",
       brief: "Contratos, responsabilidade civil, cobranças e cumprimento de sentença.",
-      icon: "receipt",
     },
     {
       title: "Direito do Consumidor",
       brief: "Cobranças indevidas, produtos e serviços defeituosos, práticas abusivas.",
-      icon: "check",
     },
     {
       title: "Direito de Família e Sucessões",
       brief: "Divórcio, guarda, pensão, inventário e partilha de bens.",
-      icon: "shield",
     },
     {
       title: "Direito Tributário",
       brief: "Discussão de débitos, execuções fiscais e planejamento tributário.",
-      icon: "chart",
     },
     {
       title: "Direito do Trabalho",
       brief: "Verbas rescisórias, reconhecimento de vínculo e defesa do empregador.",
-      icon: "hammer",
     },
     {
       title: "Direito Penal",
       brief: "Defesa criminal, acompanhamento de inquéritos e medidas cautelares.",
-      icon: "gavel",
     },
   ],
   otherAreasNote:

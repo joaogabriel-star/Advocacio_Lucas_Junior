@@ -1,14 +1,22 @@
 import Image from "next/image";
 import BookingForm from "@/components/ui/BookingForm";
 import Reveal from "@/components/ui/Reveal";
+import BackdropGraphic from "@/components/ui/BackdropGraphic";
 
 export default function BookingSection() {
   return (
     <section
       id="agendar"
-      className="border-y border-line bg-bone py-20 md:py-24"
+      className="relative overflow-hidden border-y border-line bg-bone py-20 md:py-24"
     >
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
+      <BackdropGraphic
+        src="/images/gavel-silhouette.png"
+        className="-left-20 bottom-0 h-[18rem] w-[18rem] md:h-[26rem] md:w-[26rem]"
+        sizes="(min-width: 768px) 26rem, 18rem"
+        opacity={0.45}
+      />
+
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
         <Reveal>
           <div className="flex items-center gap-4">
             <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-line bg-paper">

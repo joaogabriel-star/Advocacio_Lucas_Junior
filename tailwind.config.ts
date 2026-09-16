@@ -31,8 +31,15 @@ const config: Config = {
         line: "#E2E6EC",
       },
       fontFamily: {
-        // Fontes do sistema: serif clássica nos títulos, sans neutra no corpo.
-        display: ["Georgia", "'Times New Roman'", "Times", "serif"],
+        // Títulos em Inria Serif (a mesma do Google Sites do escritório), com
+        // Georgia/Times como fallback. Corpo em sans neutra do sistema.
+        display: [
+          "var(--font-display)",
+          "Georgia",
+          "'Times New Roman'",
+          "Times",
+          "serif",
+        ],
         sans: ["Arial", "Helvetica", "'Segoe UI'", "sans-serif"],
       },
       keyframes: {

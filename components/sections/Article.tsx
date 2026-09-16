@@ -1,6 +1,5 @@
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
-import { Icon } from "@/components/ui/icons";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 
@@ -11,9 +10,7 @@ export default function Article() {
     <section id="artigo" className="bg-paper py-20 md:py-24">
       <div className="mx-auto max-w-3xl px-4">
         <Reveal className="flex items-center gap-3">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent">
-            <Icon name="quote" className="h-5 w-5" />
-          </span>
+          <span className="h-px w-8 bg-gold" />
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             {article.eyebrow}
           </span>
@@ -55,10 +52,9 @@ export default function Article() {
             href={article.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-dark hover:underline"
+            className="text-sm font-semibold text-accent underline underline-offset-4 hover:text-accent-dark"
           >
             Ler o artigo completo no Jusbrasil
-            <Icon name="external" className="h-4 w-4" />
           </a>
         </Reveal>
       </div>

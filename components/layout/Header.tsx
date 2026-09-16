@@ -15,7 +15,6 @@ const navLinks = [
 
 const socialLinks = [
   { href: site.contact.instagramPrimary, label: "Instagram", icon: "instagram" as const },
-  { href: site.contact.jusbrasil, label: "Jusbrasil", icon: "external" as const },
 ];
 
 export default function Header() {
@@ -67,7 +66,15 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3 md:gap-4">
-          <div className="hidden items-center gap-3 border-r border-line pr-4 md:flex">
+          <div className="hidden items-center gap-4 border-r border-line pr-4 md:flex">
+            <a
+              href={site.contact.jusbrasil}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-mist transition-colors hover:text-accent"
+            >
+              Jusbrasil
+            </a>
             {socialLinks.map((s) => (
               <a
                 key={s.label}

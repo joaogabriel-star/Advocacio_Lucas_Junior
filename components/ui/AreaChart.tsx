@@ -46,9 +46,9 @@ export default function AreaChart() {
           href={site.contact.jusbrasil}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 text-sm font-semibold text-accent hover:underline sm:mt-0"
+          className="mt-2 text-sm font-semibold text-accent underline underline-offset-4 hover:text-accent-dark sm:mt-0"
         >
-          Perfil no Jusbrasil →
+          Perfil no Jusbrasil
         </a>
       </div>
 
