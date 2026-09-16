@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
-import { Icon } from "./icons";
-import MagneticButton from "./MagneticButton";
+import { Icon } from "@/components/ui/icons";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 const navLinks = [
   { href: "#areas", label: "Áreas de Atuação" },

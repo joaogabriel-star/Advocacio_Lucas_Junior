@@ -1,10 +1,10 @@
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
-import AnimatedHeadline from "./AnimatedHeadline";
-import HeroBlueprint from "./HeroBlueprint";
-import HeroPortrait from "./HeroPortrait";
-import MagneticButton from "./MagneticButton";
-import Reveal from "./Reveal";
+import AnimatedHeadline from "@/components/ui/AnimatedHeadline";
+import HeroBlueprint from "@/components/hero/HeroBlueprint";
+import HeroPortrait from "@/components/hero/HeroPortrait";
+import MagneticButton from "@/components/ui/MagneticButton";
+import Reveal from "@/components/ui/Reveal";
 
 export default function Hero() {
   return (

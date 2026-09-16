@@ -1,8 +1,9 @@
 import { site } from "@/lib/site-data";
-import { Icon, IconName } from "./icons";
-import AreaChart from "./AreaChart";
-import MagneticButton from "./MagneticButton";
-import Reveal from "./Reveal";
+import { Icon, IconName } from "@/components/ui/icons";
+import AreaChart from "@/components/ui/AreaChart";
+import MagneticButton from "@/components/ui/MagneticButton";
+import Reveal from "@/components/ui/Reveal";
+import { DotGrid, Glow } from "@/components/ui/Decor";
 
 export default function PracticeAreas() {
   const groups = Array.from(
@@ -15,7 +16,10 @@ export default function PracticeAreas() {
       className="noise relative overflow-hidden bg-navy-dark py-20 md:py-28"
       style={{ "--noise-opacity": 0.035 } as React.CSSProperties}
     >
-      <div className="mx-auto max-w-6xl px-4">
+      <Glow className="left-1/2 top-0 h-72 w-[36rem] -translate-x-1/2 bg-accent/[0.07]" />
+      <DotGrid className="left-8 bottom-24 h-40 w-40 opacity-[0.10] [mask-image:radial-gradient(circle_at_center,black,transparent_70%)]" />
+
+      <div className="relative mx-auto max-w-6xl px-4">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.25em] text-accent-light">
             Áreas de Atuação
@@ -54,8 +58,8 @@ export default function PracticeAreas() {
                       <p className="mt-3 text-base font-medium text-paper/90">
                         {area.brief}
                       </p>
-                      <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr]">
-                        <p className="overflow-hidden text-base text-mist opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
+                        <p className="overflow-hidden text-base text-mist transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
                           <span className="block pt-3">{area.description}</span>
                         </p>
                       </div>

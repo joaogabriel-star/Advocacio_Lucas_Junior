@@ -1,6 +1,6 @@
 "use client";
 
-import { useScrollParallax } from "@/lib/useScrollParallax";
+import { useScrollParallax } from "@/lib/hooks/useScrollParallax";
 
 export default function StepNumeral({
   n,

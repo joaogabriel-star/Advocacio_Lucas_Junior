@@ -1,8 +1,9 @@
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
-import { Icon } from "./icons";
-import MagneticButton from "./MagneticButton";
-import Reveal from "./Reveal";
+import { Icon } from "@/components/ui/icons";
+import MagneticButton from "@/components/ui/MagneticButton";
+import Reveal from "@/components/ui/Reveal";
+import { DotGrid, Glow } from "@/components/ui/Decor";
 
 export default function Correspondence() {
   const { correspondent } = site;
@@ -13,7 +14,10 @@ export default function Correspondence() {
       className="noise relative overflow-hidden bg-navy-dark py-20 md:py-28"
       style={{ "--noise-opacity": 0.035 } as React.CSSProperties}
     >
-      <div className="mx-auto max-w-6xl px-4">
+      <Glow className="-right-24 top-1/4 h-80 w-80 bg-accent/10" />
+      <DotGrid className="left-6 bottom-10 h-44 w-44 opacity-[0.10] [mask-image:radial-gradient(circle_at_center,black,transparent_70%)]" />
+
+      <div className="relative mx-auto max-w-6xl px-4">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.25em] text-accent-light">
             {correspondent.eyebrow}

@@ -1,5 +1,6 @@
-import Reveal from "./Reveal";
-import StepNumeral from "./StepNumeral";
+import Reveal from "@/components/ui/Reveal";
+import StepNumeral from "@/components/ui/StepNumeral";
+import { DotGrid, Glow } from "@/components/ui/Decor";
 
 const steps = [
   {
@@ -28,7 +29,10 @@ export default function HowItWorks() {
       className="noise relative overflow-hidden bg-navy-surface py-20 md:py-24"
       style={{ "--noise-opacity": 0.03 } as React.CSSProperties}
     >
-      <div className="mx-auto max-w-6xl px-4">
+      <Glow className="-left-24 top-0 h-72 w-72 bg-accent/10" />
+      <DotGrid className="right-6 top-10 h-40 w-40 opacity-[0.12] [mask-image:radial-gradient(circle_at_center,black,transparent_70%)]" />
+
+      <div className="relative mx-auto max-w-6xl px-4">
         <Reveal className="mx-auto max-w-xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
             Como Funciona
@@ -37,7 +41,11 @@ export default function HowItWorks() {
             Três passos até sua consultoria
           </h2>
         </Reveal>
-        <div className="mt-14 grid gap-10 md:grid-cols-3">
+        <div className="relative mt-14 grid gap-10 md:grid-cols-3">
+          <div
+            aria-hidden
+            className="absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent md:block"
+          />
           {steps.map((step, i) => (
             <Reveal key={step.n} delay={i * 100} className="relative pl-2">
               <StepNumeral n={step.n} speed={0.08 + i * 0.05} />

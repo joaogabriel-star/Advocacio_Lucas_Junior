@@ -3,8 +3,8 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site-data";
 import { siteUrl } from "@/lib/site-url";
-import CustomCursor from "@/components/CustomCursor";
-import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
+import CustomCursor from "@/components/layout/CustomCursor";
+import WhatsAppFloatingButton from "@/components/layout/WhatsAppFloatingButton";
 
 const display = Space_Grotesk({
   subsets: ["latin"],

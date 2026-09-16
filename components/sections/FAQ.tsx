@@ -1,5 +1,5 @@
 import { site } from "@/lib/site-data";
-import Reveal from "./Reveal";
+import Reveal from "@/components/ui/Reveal";
 
 export default function FAQ() {
   return (

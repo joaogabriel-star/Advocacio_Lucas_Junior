@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePrefersReducedMotion } from "@/lib/useReducedMotion";
+import { usePrefersReducedMotion } from "@/lib/hooks/useReducedMotion";
 
 // Motivo autoral do hero: uma planta baixa arquitetônica sendo "desenhada"
 // lentamente em traço fino, referenciando o Direito Imobiliário sem recorrer

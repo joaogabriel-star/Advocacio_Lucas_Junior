@@ -54,10 +54,18 @@ export default function AreaChart() {
 
       <div className="mt-8 flex flex-col gap-4">
         {stats.map((stat, i) => (
-          <div key={stat.label} className="flex items-center gap-4">
-            <span className="w-40 shrink-0 text-sm text-paper/80 sm:w-52 sm:text-base">
-              {stat.label}
-            </span>
+          <div
+            key={stat.label}
+            className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4"
+          >
+            <div className="flex items-center justify-between sm:w-52 sm:shrink-0">
+              <span className="text-sm text-paper/80 sm:text-base">
+                {stat.label}
+              </span>
+              <span className="font-display text-sm font-semibold tabular-nums text-paper sm:hidden">
+                {stat.value}%
+              </span>
+            </div>
             <div className="relative h-3 flex-1 overflow-hidden rounded-full bg-navy-dark">
               <div
                 className={`h-full rounded-full ${
@@ -71,7 +79,7 @@ export default function AreaChart() {
                 }}
               />
             </div>
-            <span className="w-12 shrink-0 text-right font-display text-sm font-semibold tabular-nums text-paper">
+            <span className="hidden w-12 shrink-0 text-right font-display text-sm font-semibold tabular-nums text-paper sm:block">
               {stat.value}%
             </span>
           </div>

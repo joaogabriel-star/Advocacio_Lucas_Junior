@@ -1,13 +1,13 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import PracticeAreas from "@/components/PracticeAreas";
-import Article from "@/components/Article";
-import HowItWorks from "@/components/HowItWorks";
-import About from "@/components/About";
-import Correspondence from "@/components/Correspondence";
-import BookingSection from "@/components/BookingSection";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import Hero from "@/components/sections/Hero";
+import PracticeAreas from "@/components/sections/PracticeAreas";
+import Article from "@/components/sections/Article";
+import HowItWorks from "@/components/sections/HowItWorks";
+import About from "@/components/sections/About";
+import Correspondence from "@/components/sections/Correspondence";
+import BookingSection from "@/components/sections/BookingSection";
+import FAQ from "@/components/sections/FAQ";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (

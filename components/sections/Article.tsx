@@ -1,8 +1,9 @@
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
-import { Icon } from "./icons";
-import MagneticButton from "./MagneticButton";
-import Reveal from "./Reveal";
+import { Icon } from "@/components/ui/icons";
+import MagneticButton from "@/components/ui/MagneticButton";
+import Reveal from "@/components/ui/Reveal";
+import { DotGrid } from "@/components/ui/Decor";
 
 export default function Article() {
   const { article } = site;
@@ -18,6 +19,7 @@ export default function Article() {
         aria-hidden
         className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-accent/10 blur-[120px]"
       />
+      <DotGrid className="right-8 top-16 h-40 w-40 opacity-[0.10] [mask-image:radial-gradient(circle_at_center,black,transparent_70%)]" />
 
       <div className="relative mx-auto max-w-3xl px-4">
         <Reveal className="flex items-center gap-3">

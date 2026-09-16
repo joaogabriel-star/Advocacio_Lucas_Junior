@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
-import MagneticButton from "./MagneticButton";
-import Reveal from "./Reveal";
+import MagneticButton from "@/components/ui/MagneticButton";
+import Reveal from "@/components/ui/Reveal";
 
 export default function About() {
   return (
@@ -21,7 +21,7 @@ export default function About() {
           alt=""
           fill
           sizes="(min-width: 1024px) 42vw, (min-width: 640px) 50vw, 70vw"
-          className="object-contain object-bottom opacity-25 grayscale invert mix-blend-screen [mask-image:radial-gradient(120%_100%_at_80%_80%,black,transparent_75%)]"
+          className="object-contain object-bottom opacity-[0.12] grayscale invert mix-blend-screen [mask-image:radial-gradient(120%_100%_at_80%_80%,black,transparent_75%)] sm:opacity-25"
         />
       </div>
 
