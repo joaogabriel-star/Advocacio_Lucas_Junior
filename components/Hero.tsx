@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
 import AnimatedHeadline from "./AnimatedHeadline";
@@ -18,19 +17,15 @@ export default function Hero() {
 
       <div className="relative mx-auto w-full max-w-6xl px-4 pb-16 pt-40">
         <div className="md:max-w-[52%]">
-          <Reveal>
-            <Image
-              src="/images/logo-lm.png"
-              alt={site.brand}
-              width={220}
-              height={92}
-              priority
-              className="h-20 w-auto md:h-24"
-            />
-          </Reveal>
           <Reveal delay={80}>
-            <p className="mt-6 font-display text-xl text-paper md:text-2xl">
-              Eu sou
+            <div className="flex items-center gap-3">
+              <span className="h-px w-10 bg-accent" />
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-accent-light">
+                Advogado · {site.oab}
+              </span>
+            </div>
+            <p className="mt-5 font-display text-2xl font-medium text-mist md:text-3xl">
+              Prazer, eu sou
             </p>
           </Reveal>
 

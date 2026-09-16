@@ -11,7 +11,21 @@ export default function About() {
       className="noise relative overflow-hidden bg-navy-dark py-20 md:py-28"
       style={{ "--noise-opacity": 0.035 } as React.CSSProperties}
     >
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[0.8fr_1.2fr] md:items-center">
+      {/* balança da justiça como elemento gráfico de fundo */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-10 bottom-0 top-0 w-[70%] sm:w-1/2 lg:w-[42%]"
+      >
+        <Image
+          src="/images/justice-scale.jpg"
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 42vw, (min-width: 640px) 50vw, 70vw"
+          className="object-contain object-bottom opacity-25 grayscale invert mix-blend-screen [mask-image:radial-gradient(120%_100%_at_80%_80%,black,transparent_75%)]"
+        />
+      </div>
+
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[0.8fr_1.2fr] md:items-center">
         <Reveal className="group relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-tl-sm rounded-br-sm rounded-tr-2xl rounded-bl-2xl border border-paper/10 bg-navy-surface">
           <Image
             src="/images/dsc00820.jpeg"
