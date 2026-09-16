@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
 import { Icon } from "./icons";
@@ -18,6 +19,20 @@ export default function Article() {
         aria-hidden
         className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-accent/10 blur-[120px]"
       />
+
+      {/* balança da justiça como elemento gráfico sutil (silhueta fantasma) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 w-3/4 sm:w-1/2 lg:w-2/5"
+      >
+        <Image
+          src="/images/justice-scale.jpg"
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 75vw"
+          className="object-cover object-right opacity-[0.10] grayscale invert mix-blend-screen [mask-image:linear-gradient(to_left,black,transparent)]"
+        />
+      </div>
 
       <div className="relative mx-auto max-w-3xl px-4">
         <Reveal className="flex items-center gap-3">

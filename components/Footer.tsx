@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
 
@@ -9,8 +10,14 @@ export default function Footer() {
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="font-display text-lg text-paper">{site.brand}</p>
-          <p className="text-sm">{site.lawyer.credentials}</p>
+          <Image
+            src="/images/logo-lm.png"
+            alt={site.brand}
+            width={150}
+            height={64}
+            className="h-14 w-auto"
+          />
+          <p className="mt-3 text-sm">{site.lawyer.credentials}</p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-accent-light">
