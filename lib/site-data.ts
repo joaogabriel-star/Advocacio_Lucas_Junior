@@ -70,29 +70,64 @@ export const site = {
       icon: "shield",
       group: "Direito Imobiliário",
     },
-    {
-      slug: "cobrancas",
-      title: "Ações de Cobrança",
-      brief:
-        "Cobro o que é seu: aluguel, taxas e contas em atraso, do jeito certo.",
-      description:
-        "Cobrança de aluguel, água, luz, IPTU, condomínio e execução de títulos e contratos.",
-      icon: "receipt",
-      group: "Ações e Execuções",
-    },
-    {
-      slug: "execucao-patrimonial",
-      title: "Execução e Constrição Patrimonial",
-      brief:
-        "Transformo uma sentença favorável em dinheiro ou bens de fato na sua conta.",
-      description:
-        "Cumprimento de sentença, impugnações, bloqueios e penhoras, com foco na fase executiva do processo.",
-      icon: "gavel",
-      group: "Ações e Execuções",
-    },
   ],
   otherAreasNote:
     "Também atende outras áreas do Direito Civil, do Consumidor e Tributário. Não encontrou sua situação na lista? Fale com um advogado mesmo assim.",
+  // Distribuição de atuação por área (dados do perfil Jusbrasil).
+  areaStats: [
+    { label: "Direito Imobiliário", value: 21 },
+    { label: "Direito do Consumidor", value: 15 },
+    { label: "Direito Penal", value: 15 },
+    { label: "Direito Tributário", value: 15 },
+    { label: "Direito de Família", value: 15 },
+    { label: "Direito do Trabalho", value: 15 },
+  ],
+  // Artigo publicado no Jusbrasil (seção editorial).
+  article: {
+    eyebrow: "Artigo publicado no Jusbrasil",
+    title: "E agora?",
+    lead:
+      "Todos estão sujeitos a enfrentar situações injustas algum dia: cobranças indevidas, contratos abusivos, problemas com atendimento, problemas com imóveis, serviços mal prestados ou até mesmo descumprimentos judiciais. Mas como solucionar se alguma dessas situações ocorrer com você?",
+    highlight: "O direito existe para te proteger.",
+    paragraphs: [
+      "Se você recebeu uma cobrança que desconhece, teve problemas com alguma compra ou está com dificuldades para resolver um conflito relacionado a herança, aluguel ou serviços, saiba que existem caminhos legais para solucionar — seja de forma amigável (via recomendável) ou judicial.",
+      "Atuar com base em informações precisas é a melhor maneira de evitar prejuízos ainda maiores. Um simples pedido judicial de cumprimento de sentença ou uma orientação contratual direcionada podem fazer toda a diferença entre solucionar ou agravar o seu problema.",
+      "Como advogado atuante na área de Direito Civil, oriento e represento clientes em todas essas situações, sempre buscando soluções práticas, econômicas e justas.",
+      "Se você enfrenta algum impasse jurídico, busque orientação antes de tomar decisões precipitadas. Agir com segurança sempre é o melhor caminho.",
+    ],
+    link: "https://www.jusbrasil.com.br/artigos/e-agora/3715304653",
+  },
+  // Correspondência jurídica (serviços prestados a colegas e escritórios).
+  correspondent: {
+    eyebrow: "Correspondência Jurídica",
+    title: "Apoio processual em Brasília/DF",
+    description:
+      "Atuação como correspondente jurídico para advogados e escritórios que precisam de presença e diligências na capital, com agilidade e retorno documentado.",
+    services: [
+      "Acompanhamentos",
+      "Alvarás",
+      "Análises",
+      "Andamentos",
+      "Audiências",
+      "Buscas e apreensões",
+      "Cópias",
+      "Cargas",
+      "Conciliação",
+      "Consultas",
+      "Despachos",
+      "Distribuições",
+      "Elaboração de tese",
+      "Exame de processos",
+      "Mandados",
+      "Mediação",
+      "Pareceres",
+      "Peças",
+      "Prazos",
+      "Protocolos",
+      "Recursos",
+      "Sustentações orais",
+    ],
+  },
   faq: [
     {
       q: "A primeira conversa tem custo?",

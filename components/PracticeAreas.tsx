@@ -1,5 +1,6 @@
 import { site } from "@/lib/site-data";
 import { Icon, IconName } from "./icons";
+import AreaChart from "./AreaChart";
 import MagneticButton from "./MagneticButton";
 import Reveal from "./Reveal";
 
@@ -64,6 +65,10 @@ export default function PracticeAreas() {
             </div>
           </div>
         ))}
+
+        <Reveal className="mt-16">
+          <AreaChart />
+        </Reveal>
 
         <Reveal className="mt-14 rounded-2xl border border-accent/20 bg-navy-surface p-8 text-center">
           <p className="text-mist">{site.otherAreasNote}</p>

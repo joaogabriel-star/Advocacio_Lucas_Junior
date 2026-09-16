@@ -7,7 +7,9 @@ import MagneticButton from "./MagneticButton";
 
 const navLinks = [
   { href: "#areas", label: "Áreas de Atuação" },
+  { href: "#artigo", label: "Artigo" },
   { href: "#sobre", label: "Sobre" },
+  { href: "#correspondencia", label: "Correspondência" },
   { href: "#faq", label: "Dúvidas" },
 ];
 
