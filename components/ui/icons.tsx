@@ -9,7 +9,9 @@ export type IconName =
   | "external"
   | "check"
   | "quote"
-  | "chart";
+  | "chart"
+  | "menu"
+  | "close";
 
 const paths: Record<IconName, string> = {
   key: "M15 7a4 4 0 1 0-3.9 4.99L4 19v3h3l1-1v-1.5H9.5V18H11v-1.5h1.5L15.01 14A4 4 0 0 0 19 10a4 4 0 0 0-4-3Zm0 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z",
@@ -33,6 +35,9 @@ const paths: Record<IconName, string> = {
     "M7.5 6C5.6 6 4 7.6 4 9.5c0 1.9 1.6 3.5 3.5 3.5.2 0 .4 0 .5-.05C7.6 14.2 6.4 15.4 5 16l.9 1.5c2.7-1.2 4.6-3.6 4.6-6.9V9.5C10.5 7.6 9.4 6 7.5 6Zm9 0C14.6 6 13 7.6 13 9.5c0 1.9 1.6 3.5 3.5 3.5.2 0 .4 0 .5-.05-.4 1.25-1.6 2.45-3 3.05l.9 1.5c2.7-1.2 4.6-3.6 4.6-6.9V9.5C19.5 7.6 18.4 6 16.5 6Z",
   chart:
     "M4 4h2v14h14v2H4V4Zm4 9h2v3H8v-3Zm3.5-5h2v8h-2V8ZM15 11h2v5h-2v-5Zm3.5-6h2v11h-2V5Z",
+  menu: "M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z",
+  close:
+    "M18.3 5.71 12 12.01l-6.3-6.3-1.4 1.41 6.29 6.3-6.3 6.29 1.41 1.41 6.3-6.29 6.29 6.29 1.41-1.41-6.29-6.3 6.29-6.29-1.4-1.41Z",
 };
 
 export function Icon({ name, className }: { name: IconName; className?: string }) {

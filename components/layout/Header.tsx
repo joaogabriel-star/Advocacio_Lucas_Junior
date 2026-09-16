@@ -4,6 +4,7 @@ import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
 import { Icon } from "@/components/ui/icons";
 import MagneticButton from "@/components/ui/MagneticButton";
+import MobileMenu from "@/components/layout/MobileMenu";
 
 const navLinks = [
   { href: "#areas", label: "Áreas de Atuação" },
@@ -43,8 +44,8 @@ export default function Header() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-3 border-r border-paper/15 pr-4">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="hidden items-center gap-3 border-r border-paper/15 pr-4 md:flex">
             {socialLinks.map((s) => (
               <a
                 key={s.label}
@@ -70,10 +71,15 @@ export default function Header() {
           <MagneticButton
             href="#agendar"
             strength={8}
-            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-navy-dark hover:bg-accent-light"
+            className="hidden rounded-full bg-accent px-4 py-2 text-sm font-semibold text-navy-dark hover:bg-accent-light sm:inline-block"
           >
             Agendar
           </MagneticButton>
+          <MobileMenu
+            navLinks={navLinks}
+            socialLinks={socialLinks}
+            whatsappHref={whatsappLink()}
+          />
         </div>
       </div>
     </header>
