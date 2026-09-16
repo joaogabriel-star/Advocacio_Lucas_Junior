@@ -35,7 +35,7 @@ export default function MobileMenu({
         onClick={() => setOpen(true)}
         aria-label="Abrir menu"
         aria-expanded={open}
-        className="flex h-10 w-10 items-center justify-center rounded-lg text-paper/80 transition-colors hover:text-accent-light"
+        className="flex h-10 w-10 items-center justify-center rounded-md text-ink transition-colors hover:text-accent"
       >
         <Icon name="menu" className="h-6 w-6" />
       </button>
@@ -50,26 +50,26 @@ export default function MobileMenu({
           tabIndex={open ? 0 : -1}
           aria-label="Fechar menu"
           onClick={() => setOpen(false)}
-          className={`absolute inset-0 h-full w-full bg-ink/70 backdrop-blur-sm transition-opacity duration-300 ${
+          className={`absolute inset-0 h-full w-full bg-navy/60 backdrop-blur-sm transition-opacity duration-300 ${
             open ? "opacity-100" : "opacity-0"
           }`}
         />
 
         {/* gaveta lateral */}
         <div
-          className={`absolute right-0 top-0 flex h-full w-4/5 max-w-xs flex-col bg-navy-light p-6 shadow-2xl transition-transform duration-300 ease-out ${
+          className={`absolute right-0 top-0 flex h-full w-4/5 max-w-xs flex-col bg-paper p-6 shadow-2xl transition-transform duration-300 ease-out ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
               Menu
             </span>
             <button
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Fechar menu"
-              className="flex h-10 w-10 items-center justify-center rounded-lg text-paper/80 transition-colors hover:text-accent-light"
+              className="flex h-10 w-10 items-center justify-center rounded-md text-ink transition-colors hover:text-accent"
             >
               <Icon name="close" className="h-6 w-6" />
             </button>
@@ -81,7 +81,7 @@ export default function MobileMenu({
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-paper/10 py-3.5 text-lg text-paper/80 transition-colors hover:text-accent-light"
+                className="border-b border-line py-3.5 text-lg text-ink transition-colors hover:text-accent"
               >
                 {link.label}
               </a>
@@ -97,7 +97,7 @@ export default function MobileMenu({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-paper/70 transition-colors hover:text-accent-light"
+                  className="text-mist transition-colors hover:text-accent"
                 >
                   <Icon name={s.icon} className="h-6 w-6" />
                 </a>
@@ -108,14 +108,14 @@ export default function MobileMenu({
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="block rounded-full border border-paper/20 py-3 text-center text-sm font-semibold text-paper transition-colors hover:border-accent hover:text-accent-light"
+              className="block rounded-md border border-accent py-3 text-center text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-paper"
             >
               Falar no WhatsApp
             </a>
             <a
               href="#agendar"
               onClick={() => setOpen(false)}
-              className="block rounded-full bg-accent py-3 text-center text-sm font-semibold text-navy-dark transition-colors hover:bg-accent-light"
+              className="block rounded-md bg-accent py-3 text-center text-sm font-semibold text-paper transition-colors hover:bg-accent-dark"
             >
               Agendar consultoria
             </a>

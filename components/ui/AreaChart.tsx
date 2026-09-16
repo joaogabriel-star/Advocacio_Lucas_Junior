@@ -31,14 +31,14 @@ export default function AreaChart() {
   return (
     <div
       ref={ref}
-      className="rounded-tl-sm rounded-br-sm rounded-tr-2xl rounded-bl-2xl border border-paper/10 bg-navy-surface p-8 md:p-10"
+      className="rounded-md border border-line bg-bone p-8 md:p-10"
     >
       <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             Distribuição de atuação
           </span>
-          <h3 className="mt-2 font-display text-2xl font-semibold text-paper">
+          <h3 className="mt-2 font-display text-2xl font-bold text-navy">
             Onde o Dr. Lucas mais atua
           </h3>
         </div>
@@ -46,7 +46,7 @@ export default function AreaChart() {
           href={site.contact.jusbrasil}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 text-sm font-medium text-accent-light hover:text-accent sm:mt-0"
+          className="mt-2 text-sm font-semibold text-accent hover:underline sm:mt-0"
         >
           Perfil no Jusbrasil →
         </a>
@@ -59,19 +59,17 @@ export default function AreaChart() {
             className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4"
           >
             <div className="flex items-center justify-between sm:w-52 sm:shrink-0">
-              <span className="text-sm text-paper/80 sm:text-base">
+              <span className="text-sm text-ink sm:text-base">
                 {stat.label}
               </span>
-              <span className="font-display text-sm font-semibold tabular-nums text-paper sm:hidden">
+              <span className="font-display text-sm font-bold tabular-nums text-navy sm:hidden">
                 {stat.value}%
               </span>
             </div>
-            <div className="relative h-3 flex-1 overflow-hidden rounded-full bg-navy-dark">
+            <div className="relative h-3 flex-1 overflow-hidden rounded-full bg-line">
               <div
                 className={`h-full rounded-full ${
-                  i === 0
-                    ? "bg-gradient-to-r from-accent-dark to-accent-light"
-                    : "bg-accent/50"
+                  i === 0 ? "bg-accent" : "bg-accent/40"
                 }`}
                 style={{
                   width: active ? `${(stat.value / max) * 100}%` : "0%",
@@ -79,7 +77,7 @@ export default function AreaChart() {
                 }}
               />
             </div>
-            <span className="hidden w-12 shrink-0 text-right font-display text-sm font-semibold tabular-nums text-paper sm:block">
+            <span className="hidden w-12 shrink-0 text-right font-display text-sm font-bold tabular-nums text-navy sm:block">
               {stat.value}%
             </span>
           </div>

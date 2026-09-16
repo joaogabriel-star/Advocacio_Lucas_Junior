@@ -7,27 +7,13 @@ html {
 }
 
 body {
-  background-color: #05080f;
+  background-color: #ffffff;
 }
 
-.dot-grid {
-  background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
-  background-size: 10px 10px;
-}
-
-.noise::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: var(--noise-opacity, 0.05);
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
+/* Entrada suave das seções ao rolar — único efeito de movimento do site. */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -36,82 +22,10 @@ body {
   transform: translateY(0);
 }
 
-/* Reveal letra-a-letra do headline do hero */
-.char-reveal {
-  opacity: 0;
-  transform: translateY(105%) rotate(3deg);
-  animation: charReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes charReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(0deg);
-  }
-}
-
-/* Traçado do blueprint do hero (planta baixa) */
-.blueprint-line {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: blueprintDraw 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-
-@keyframes blueprintDraw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.blueprint-caption {
-  animation: blueprintCaption 1s ease-out 3.3s forwards;
-}
-
-@keyframes blueprintCaption {
-  to {
-    opacity: 0.3;
-  }
-}
-
-/* Cursor customizado discreto (mantém o cursor nativo) */
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 26px;
-  height: 26px;
-  margin-left: -13px;
-  margin-top: -13px;
-  border-radius: 9999px;
-  border: 1px solid rgba(79, 168, 255, 0.45);
-  pointer-events: none;
-  opacity: 0;
-  z-index: 999;
-  transition: width 0.25s ease, height 0.25s ease, margin 0.25s ease,
-    border-color 0.25s ease, background-color 0.25s ease, opacity 0.3s ease;
-  will-change: transform;
-}
-
-.cursor-ring--active {
-  width: 42px;
-  height: 42px;
-  margin-left: -21px;
-  margin-top: -21px;
-  background-color: rgba(79, 168, 255, 0.08);
-  border-color: rgba(140, 199, 255, 0.75);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .char-reveal,
-  .blueprint-line,
-  .blueprint-caption {
-    animation: none !important;
+  .reveal {
     opacity: 1 !important;
     transform: none !important;
-    stroke-dashoffset: 0 !important;
-  }
-
-  .cursor-ring {
-    display: none;
+    transition: none !important;
   }
 }

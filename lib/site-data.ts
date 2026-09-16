@@ -29,6 +29,15 @@ export const site = {
   },
   whatsappMessage:
     "Olá! Vim pelo site e gostaria de agendar uma consultoria.",
+  // Posicionamento: banca full service, com especialidade em Direito Imobiliário.
+  positioning: {
+    eyebrow: "Advocacia full service · Brasília/DF",
+    headline: "Advogado especialista em Direito Imobiliário em Brasília",
+    subheadline:
+      "Atendimento completo em todas as áreas do Direito, com especialidade e atuação concentrada em questões imobiliárias — da análise do contrato ao cumprimento de sentença.",
+    specialtyLabel: "Especialidade",
+    fullServiceLabel: "Atuação full service",
+  },
   practiceAreas: [
     {
       slug: "locacao-despejo",
@@ -71,8 +80,41 @@ export const site = {
       group: "Direito Imobiliário",
     },
   ],
+  // Demais áreas atendidas (full service), além da especialidade imobiliária.
+  fullServiceAreas: [
+    {
+      title: "Direito Civil e Contratos",
+      brief: "Contratos, responsabilidade civil, cobranças e cumprimento de sentença.",
+      icon: "receipt",
+    },
+    {
+      title: "Direito do Consumidor",
+      brief: "Cobranças indevidas, produtos e serviços defeituosos, práticas abusivas.",
+      icon: "check",
+    },
+    {
+      title: "Direito de Família e Sucessões",
+      brief: "Divórcio, guarda, pensão, inventário e partilha de bens.",
+      icon: "shield",
+    },
+    {
+      title: "Direito Tributário",
+      brief: "Discussão de débitos, execuções fiscais e planejamento tributário.",
+      icon: "chart",
+    },
+    {
+      title: "Direito do Trabalho",
+      brief: "Verbas rescisórias, reconhecimento de vínculo e defesa do empregador.",
+      icon: "hammer",
+    },
+    {
+      title: "Direito Penal",
+      brief: "Defesa criminal, acompanhamento de inquéritos e medidas cautelares.",
+      icon: "gavel",
+    },
+  ],
   otherAreasNote:
-    "Também atende outras áreas do Direito Civil, do Consumidor e Tributário. Não encontrou sua situação na lista? Fale com um advogado mesmo assim.",
+    "O escritório atua como full service: se a sua demanda não está listada acima, ela provavelmente também é atendida. Fale com um advogado mesmo assim.",
   // Distribuição de atuação por área (dados do perfil Jusbrasil).
   areaStats: [
     { label: "Direito Imobiliário", value: 21 },

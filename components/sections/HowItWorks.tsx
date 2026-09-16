@@ -1,6 +1,5 @@
+import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import StepNumeral from "@/components/ui/StepNumeral";
-import { DotGrid, Glow } from "@/components/ui/Decor";
 
 const steps = [
   {
@@ -25,36 +24,47 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section
-      className="noise relative overflow-hidden bg-navy-surface py-20 md:py-24"
-      style={{ "--noise-opacity": 0.03 } as React.CSSProperties}
-    >
-      <Glow className="-left-24 top-0 h-72 w-72 bg-accent/10" />
-      <DotGrid className="right-6 top-10 h-40 w-40 opacity-[0.12] [mask-image:radial-gradient(circle_at_center,black,transparent_70%)]" />
-
-      <div className="relative mx-auto max-w-6xl px-4">
-        <Reveal className="mx-auto max-w-xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-light">
-            Como Funciona
-          </span>
-          <h2 className="mt-3 font-display text-4xl font-semibold text-paper">
-            Três passos até sua consultoria
-          </h2>
-        </Reveal>
-        <div className="relative mt-14 grid gap-10 md:grid-cols-3">
-          <div
-            aria-hidden
-            className="absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent md:block"
+    <section className="border-y border-line bg-bone py-20 md:py-24">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
+        <Reveal className="relative aspect-[4/3] w-full overflow-hidden rounded-md bg-navy">
+          <Image
+            src="/images/lucas-escritorio.jpeg"
+            alt="Dr. Lucas Marcelino atendendo no escritório"
+            fill
+            sizes="(min-width: 768px) 50vw, 90vw"
+            className="object-cover object-center"
           />
-          {steps.map((step, i) => (
-            <Reveal key={step.n} delay={i * 100} className="relative pl-2">
-              <StepNumeral n={step.n} speed={0.08 + i * 0.05} />
-              <h3 className="mt-3 font-display text-xl font-semibold text-paper">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-base text-mist">{step.description}</p>
-            </Reveal>
-          ))}
+        </Reveal>
+
+        <div>
+          <Reveal>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+              Como Funciona
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-bold text-navy md:text-4xl">
+              Três passos até sua consultoria
+            </h2>
+          </Reveal>
+
+          <div className="mt-10 space-y-8">
+            {steps.map((step, i) => (
+              <Reveal key={step.n} delay={i * 80}>
+                <div className="flex gap-5 border-t border-line pt-6">
+                  <span className="font-display text-3xl font-bold text-gold">
+                    {step.n}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-navy">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-base leading-relaxed text-mist">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

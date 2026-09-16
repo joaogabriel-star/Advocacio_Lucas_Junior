@@ -5,24 +5,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Fundos claros: branco puro e um off-white de papel para alternar seções.
+        paper: "#FFFFFF",
+        bone: "#F6F4F0",
+        mistBg: "#EEF1F5",
+        // Azul institucional sóbrio — títulos, footer e superfícies escuras pontuais.
         navy: {
-          DEFAULT: "#0A1220",
-          light: "#101B30",
-          dark: "#05080F",
-          surface: "#0E182C",
+          DEFAULT: "#12304F",
+          dark: "#0D2239",
+          light: "#1D4470",
         },
-        ink: "#040609",
+        // Azul corporativo de links, botões e destaques.
         accent: {
-          DEFAULT: "#4FA8FF",
-          light: "#8CC7FF",
-          dark: "#2E7FD1",
+          DEFAULT: "#1D5C9E",
+          dark: "#143F6E",
+          light: "#2E7AC4",
         },
-        paper: "#F3F5F8",
-        mist: "#9AA7BD",
+        // Dourado discreto para filetes e olho de seção (tom tradicional).
+        gold: {
+          DEFAULT: "#A88B5B",
+          light: "#C4AA7E",
+        },
+        ink: "#1C2530",
+        mist: "#5A6675",
+        line: "#E2E6EC",
       },
       fontFamily: {
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        // Fontes do sistema: serif clássica nos títulos, sans neutra no corpo.
+        display: ["Georgia", "'Times New Roman'", "Times", "serif"],
+        sans: ["Arial", "Helvetica", "'Segoe UI'", "sans-serif"],
       },
       keyframes: {
         fadeUp: {
