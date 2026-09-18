@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { contactRequestSchema } from "@/lib/validation";
 import { rateLimit } from "@/lib/rateLimit";
+import { notifyNewContactRequest } from "@/lib/notify-email";
 
 function safeCompare(a: string, b: string) {
   const bufA = Buffer.from(a);
@@ -68,6 +69,8 @@ export async function POST(req: NextRequest) {
       source: "site",
     },
   });
+
+  await notifyNewContactRequest(created);
 
   return NextResponse.json({ id: created.id }, { status: 201 });
 }

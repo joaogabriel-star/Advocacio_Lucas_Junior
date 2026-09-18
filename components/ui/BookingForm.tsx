@@ -1,11 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { site } from "@/lib/site-data";
-import { whatsappLink } from "@/lib/whatsapp";
+import { whatsappLinkFromForm } from "@/lib/whatsapp";
 
 type Mode = "CONSULTA_RAPIDA" | "AGENDAMENTO";
 type Status = "idle" | "loading" | "success" | "error";
+
+type FormValues = {
+  name: string;
+  phone: string;
+  email: string;
+  area: string;
+  message: string;
+  preferredDate?: string;
+  preferredPeriod?: string;
+};
 
 const periods = [
   { value: "MANHA", label: "Manhã" },
@@ -13,28 +23,40 @@ const periods = [
   { value: "NOITE", label: "Noite" },
 ];
 
+function readFormValues(form: HTMLFormElement, mode: Mode): FormValues {
+  const data = new FormData(form);
+  return {
+    name: String(data.get("name") || ""),
+    phone: String(data.get("phone") || ""),
+    email: String(data.get("email") || ""),
+    area: String(data.get("area") || ""),
+    message: String(data.get("message") || ""),
+    preferredDate: mode === "AGENDAMENTO" ? String(data.get("preferredDate") || "") : undefined,
+    preferredPeriod: mode === "AGENDAMENTO" ? (data.get("preferredPeriod") as string) || undefined : undefined,
+  };
+}
+
 export default function BookingForm() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [mode, setMode] = useState<Mode>("AGENDAMENTO");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [lastValues, setLastValues] = useState<FormValues | null>(null);
+
+  function openWhatsAppWithFormData() {
+    if (!formRef.current) return;
+    const values = readFormValues(formRef.current, mode);
+    window.open(whatsappLinkFromForm(values), "_blank", "noopener,noreferrer");
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
     setErrorMsg("");
 
-    const form = new FormData(e.currentTarget);
-    const payload = {
-      name: String(form.get("name") || ""),
-      phone: String(form.get("phone") || ""),
-      email: String(form.get("email") || ""),
-      area: String(form.get("area") || ""),
-      message: String(form.get("message") || ""),
-      type: mode,
-      preferredDate: mode === "AGENDAMENTO" ? String(form.get("preferredDate") || "") : undefined,
-      preferredPeriod: mode === "AGENDAMENTO" ? (form.get("preferredPeriod") as string) || undefined : undefined,
-      website: String(form.get("website") || ""),
-    };
+    const values = readFormValues(e.currentTarget, mode);
+    const website = String(new FormData(e.currentTarget).get("website") || "");
+    const payload = { ...values, type: mode, website };
 
     try {
       const res = await fetch("/api/appointments", {
@@ -53,6 +75,7 @@ export default function BookingForm() {
         return;
       }
 
+      setLastValues(values);
       setStatus("success");
     } catch {
       setErrorMsg(
@@ -71,9 +94,7 @@ export default function BookingForm() {
           rápida, fale agora pelo WhatsApp.
         </p>
         <a
-          href={whatsappLink(
-            "Olá! Acabei de solicitar um agendamento pelo site.",
-          )}
+          href={whatsappLinkFromForm(lastValues ?? {})}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 inline-block rounded-md bg-accent px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent-dark"
@@ -107,7 +128,7 @@ export default function BookingForm() {
         </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
           name="website"
@@ -218,14 +239,14 @@ export default function BookingForm() {
         </button>
         <p className="text-center text-xs text-mist">
           Resposta mais rápida?{" "}
-          <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={openWhatsAppWithFormData}
             className="font-semibold text-accent underline"
           >
             Fale direto no WhatsApp
-          </a>
+          </button>{" "}
+          (leva o que você já preencheu acima)
         </p>
       </form>
     </div>
