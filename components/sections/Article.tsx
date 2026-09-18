@@ -9,8 +9,7 @@ export default function Article() {
   return (
     <section id="artigo" className="bg-paper py-20 md:py-24">
       <div className="mx-auto max-w-3xl px-4">
-        <Reveal className="flex items-center gap-3">
-          <span className="h-px w-8 bg-gold" />
+        <Reveal>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             {article.eyebrow}
           </span>

@@ -8,35 +8,17 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className="relative overflow-hidden border-y border-line bg-bone py-20 md:py-24"
+      className="border-y border-line bg-bone py-20 md:py-24"
     >
-      {/* balança da justiça como marca d'água discreta ao fundo */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-10 bottom-0 top-0 hidden w-[42%] sm:block"
-      >
-        <Image
-          src="/images/justice-scale.jpg"
-          alt=""
-          fill
-          sizes="42vw"
-          className="object-contain object-bottom opacity-[0.06] grayscale"
-        />
-      </div>
-
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[0.85fr_1.15fr] md:items-center">
-        <Reveal className="relative mx-auto w-full max-w-xs">
-          <span
-            aria-hidden
-            className="absolute -bottom-4 -left-4 hidden h-full w-full rounded-md border border-gold/40 md:block"
-          />
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+        <Reveal className="mx-auto w-full max-w-xs">
           <div className="relative aspect-[3/4] w-full overflow-hidden rounded-md bg-navy">
             <Image
               src="/images/lucas-perfil.jpeg"
               alt={site.lawyer.fullName}
               fill
               sizes="(min-width: 768px) 320px, 80vw"
-              className="object-cover object-top"
+              className="object-cover object-center"
             />
           </div>
         </Reveal>

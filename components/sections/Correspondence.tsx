@@ -2,7 +2,6 @@ import { site } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/whatsapp";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
-import BackdropGraphic from "@/components/ui/BackdropGraphic";
 
 export default function Correspondence() {
   const { correspondent } = site;
@@ -10,16 +9,9 @@ export default function Correspondence() {
   return (
     <section
       id="correspondencia"
-      className="relative overflow-hidden bg-paper py-20 md:py-24"
+      className="bg-paper py-20 md:py-24"
     >
-      <BackdropGraphic
-        src="/images/gavel-silhouette.png"
-        className="-right-20 top-4 h-[20rem] w-[20rem] md:h-[30rem] md:w-[30rem]"
-        sizes="(min-width: 768px) 30rem, 20rem"
-        opacity={0.5}
-      />
-
-      <div className="relative mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-6xl px-4">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             {correspondent.eyebrow}
