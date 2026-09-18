@@ -1,6 +1,16 @@
 import { site } from "./site-data";
 
+// Aponta para a rota interna /whatsapp em vez do link api.whatsapp.com direto,
+// para o número de telefone não ficar cru no HTML estático da página (só existe
+// no lado servidor, dentro da rota de redirect). Para quem clica não muda nada:
+// continua sendo um clique só, abrindo o WhatsApp normalmente.
 export function whatsappLink(message: string = site.whatsappMessage) {
+  const encoded = encodeURIComponent(message);
+  return `/whatsapp?text=${encoded}`;
+}
+
+// Usado só dentro da rota /whatsapp (lado servidor) para montar o destino real.
+export function buildWhatsAppRedirectUrl(message: string) {
   const encoded = encodeURIComponent(message);
   return `https://api.whatsapp.com/send?phone=${site.contact.phoneE164}&text=${encoded}`;
 }
