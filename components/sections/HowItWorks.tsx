@@ -28,8 +28,8 @@ export default function HowItWorks() {
       <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
         <Reveal className="relative aspect-[4/3] w-full overflow-hidden rounded-md bg-navy">
           <Image
-            src="/images/lucas-sentado.jpeg"
-            alt="Dr. Lucas Marcelino"
+            src="/images/lucas-escritorio.jpeg"
+            alt="Dr. Lucas Marcelino atendendo no escritório"
             fill
             sizes="(min-width: 768px) 50vw, 90vw"
             className="object-cover object-center"
