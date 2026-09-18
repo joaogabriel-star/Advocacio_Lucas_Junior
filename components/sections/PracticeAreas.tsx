@@ -2,6 +2,7 @@ import { site } from "@/lib/site-data";
 import AreaChart from "@/components/ui/AreaChart";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
+import BackdropGraphic from "@/components/ui/BackdropGraphic";
 
 export default function PracticeAreas() {
   const { positioning } = site;
@@ -9,9 +10,16 @@ export default function PracticeAreas() {
   return (
     <section
       id="areas"
-      className="bg-paper py-20 md:py-24"
+      className="relative overflow-hidden bg-paper py-20 md:py-24"
     >
-      <div className="mx-auto max-w-6xl px-4">
+      <BackdropGraphic
+        src="/images/gavel-silhouette.png"
+        className="left-1/2 top-0 h-[22rem] w-[30rem] -translate-x-1/2 md:h-[30rem] md:w-[46rem]"
+        sizes="(min-width: 768px) 46rem, 30rem"
+        opacity={0.35}
+      />
+
+      <div className="relative mx-auto max-w-6xl px-4">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             Áreas de Atuação
@@ -27,8 +35,9 @@ export default function PracticeAreas() {
 
         {/* Especialidade — cartões maiores, em destaque */}
         <div className="mt-14">
-          <Reveal>
-            <h3 className="border-b border-line pb-3 font-display text-2xl font-bold text-navy">
+          <Reveal className="flex items-center gap-3">
+            <span className="h-px w-8 bg-gold" />
+            <h3 className="font-display text-2xl font-bold text-navy">
               {positioning.specialtyLabel}: Direito Imobiliário
             </h3>
           </Reveal>
@@ -54,8 +63,9 @@ export default function PracticeAreas() {
 
         {/* Full service — lista compacta das demais áreas */}
         <div className="mt-16">
-          <Reveal>
-            <h3 className="border-b border-line pb-3 font-display text-2xl font-bold text-navy">
+          <Reveal className="flex items-center gap-3">
+            <span className="h-px w-8 bg-gold" />
+            <h3 className="font-display text-2xl font-bold text-navy">
               {positioning.fullServiceLabel}
             </h3>
           </Reveal>
