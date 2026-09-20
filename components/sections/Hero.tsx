@@ -3,33 +3,36 @@ import { site } from "@/lib/site-data";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 
-// navy-dark (#0D2239) em curva "smootherstep" (6t^5-15t^4+10t^3): 1ª e 2ª
-// derivadas nulas nas duas pontas, não só a 1ª — zero aceleração perceptível
-// na entrada e na chegada. 22 paradas para não deixar salto entre elas.
+// navy-dark (#0D2239) em curva assimétrica: t'=t^1.6 antes do smootherstep
+// empurra mais % da largura para opacidades baixas (lado claro se dissolve
+// bem mais devagar) e comprime a subida final perto do navy (lado escuro
+// funde rápido) — pedido do usuário: degradê mais generoso no lado bone.
 const FADE_TO_NAVY =
   "linear-gradient(to right," +
   "rgba(13,34,57,0) 0%," +
-  "rgba(13,34,57,0.0009) 4.5%," +
-  "rgba(13,34,57,0.0065) 9.1%," +
-  "rgba(13,34,57,0.0205) 13.6%," +
-  "rgba(13,34,57,0.0449) 18.2%," +
-  "rgba(13,34,57,0.081) 22.7%," +
-  "rgba(13,34,57,0.1289) 27.3%," +
-  "rgba(13,34,57,0.188) 31.8%," +
-  "rgba(13,34,57,0.2567) 36.4%," +
-  "rgba(13,34,57,0.3333) 40.9%," +
-  "rgba(13,34,57,0.4152) 45.5%," +
-  "rgba(13,34,57,0.5) 50%," +
-  "rgba(13,34,57,0.5848) 54.5%," +
-  "rgba(13,34,57,0.6667) 59.1%," +
-  "rgba(13,34,57,0.7433) 63.6%," +
-  "rgba(13,34,57,0.812) 68.2%," +
-  "rgba(13,34,57,0.8711) 72.7%," +
-  "rgba(13,34,57,0.919) 77.3%," +
-  "rgba(13,34,57,0.9551) 81.8%," +
-  "rgba(13,34,57,0.9795) 86.4%," +
-  "rgba(13,34,57,0.9935) 90.9%," +
-  "rgba(13,34,57,0.9991) 95.5%," +
+  "rgba(13,34,57,0) 4.2%," +
+  "rgba(13,34,57,0.0001) 8.3%," +
+  "rgba(13,34,57,0.0004) 12.5%," +
+  "rgba(13,34,57,0.0017) 16.7%," +
+  "rgba(13,34,57,0.0047) 20.8%," +
+  "rgba(13,34,57,0.0109) 25%," +
+  "rgba(13,34,57,0.0217) 29.2%," +
+  "rgba(13,34,57,0.0389) 33.3%," +
+  "rgba(13,34,57,0.0644) 37.5%," +
+  "rgba(13,34,57,0.0998) 41.7%," +
+  "rgba(13,34,57,0.1463) 45.8%," +
+  "rgba(13,34,57,0.2048) 50%," +
+  "rgba(13,34,57,0.2751) 54.2%," +
+  "rgba(13,34,57,0.3564) 58.3%," +
+  "rgba(13,34,57,0.4465) 62.5%," +
+  "rgba(13,34,57,0.5425) 66.7%," +
+  "rgba(13,34,57,0.6402) 70.8%," +
+  "rgba(13,34,57,0.7348) 75%," +
+  "rgba(13,34,57,0.8209) 79.2%," +
+  "rgba(13,34,57,0.8933) 83.3%," +
+  "rgba(13,34,57,0.9478) 87.5%," +
+  "rgba(13,34,57,0.9821) 91.7%," +
+  "rgba(13,34,57,0.9974) 95.8%," +
   "rgba(13,34,57,1) 100%)";
 
 const credentials = [
