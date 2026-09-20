@@ -15,7 +15,7 @@ const inriaSerif = Inria_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${site.brand} | Advogado Especialista em Direito Imobiliário em Brasília`,
+  title: site.brand,
   description:
     "Advocacia full service em Brasília/DF, com especialidade em Direito Imobiliário: usucapião, locação e despejo, leilões, incorporações e vícios construtivos. Agende sua consultoria.",
   openGraph: {
