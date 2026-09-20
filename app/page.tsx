@@ -15,8 +15,8 @@ export default function Home() {
       <Hero />
       <PracticeAreas />
       <About />
-      <BookingSection />
       <HowItWorks />
+      <BookingSection />
       <Article />
       <FAQ />
       <Footer />
