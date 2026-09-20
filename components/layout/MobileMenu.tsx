@@ -20,7 +20,9 @@ export default function MobileMenu({
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // Só sabemos que document.body existe depois de montar no cliente.
+  // Só sabemos que document.body existe depois de montar no cliente —
+  // padrão comum e seguro para portais (evita mismatch de SSR/hidratação).
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   // Trava o scroll da página enquanto o menu está aberto e fecha no Esc.

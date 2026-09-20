@@ -1,6 +1,25 @@
 import { Resend } from "resend";
 import { site } from "./site-data";
 
+// Escapa os caracteres que poderiam virar HTML/tags dentro do e-mail.
+// Todo o conteúdo interpolado abaixo vem de um formulário público — sem
+// isso, alguém poderia injetar links, imagens ou marcação maliciosa no
+// e-mail que o escritório recebe.
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+// Remove quebras de linha de campos usados no assunto do e-mail, para
+// impedir injeção de cabeçalho (CRLF injection).
+function sanitizeHeaderValue(value: string) {
+  return value.replace(/[\r\n]+/g, " ").trim();
+}
+
 const periodLabels: Record<string, string> = {
   MANHA: "Manhã",
   TARDE: "Tarde",
@@ -34,10 +53,10 @@ export async function notifyNewContactRequest(data: NotifyInput) {
     data.type === "AGENDAMENTO" ? "Novo agendamento" : "Nova dúvida rápida";
 
   const rows = [
-    ["Nome", data.name],
-    ["Telefone", data.phone],
-    ["E-mail", data.email || "—"],
-    ["Área", data.area],
+    ["Nome", escapeHtml(data.name)],
+    ["Telefone", escapeHtml(data.phone)],
+    ["E-mail", escapeHtml(data.email || "—")],
+    ["Área", escapeHtml(data.area)],
   ];
 
   if (data.preferredDate) {
@@ -62,7 +81,7 @@ export async function notifyNewContactRequest(data: NotifyInput) {
       <table>${rowsHtml}</table>
       ${
         data.message
-          ? `<p style="margin-top:16px;color:#333;"><strong>Caso descrito:</strong><br/>${data.message}</p>`
+          ? `<p style="margin-top:16px;color:#333;"><strong>Caso descrito:</strong><br/>${escapeHtml(data.message)}</p>`
           : ""
       }
     </div>
@@ -72,7 +91,7 @@ export async function notifyNewContactRequest(data: NotifyInput) {
     await resend.emails.send({
       from,
       to,
-      subject: `${kindLabel}: ${data.name}`,
+      subject: `${kindLabel}: ${sanitizeHeaderValue(data.name)}`,
       html,
     });
   } catch (err) {
