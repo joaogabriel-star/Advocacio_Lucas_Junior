@@ -36,7 +36,12 @@ export default function BookingSection() {
           <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-navy md:text-4xl">
             Quanto antes você falar sobre seu caso, mais opções você tem.
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-ink">
+          {/* versão curta no celular, texto completo a partir do tablet */}
+          <p className="mt-4 text-lg leading-relaxed text-ink md:hidden">
+            Agende sua consultoria e fale direto com o Dr. Lucas, sem
+            enrolação.
+          </p>
+          <p className="mt-4 hidden text-lg leading-relaxed text-ink md:block">
             Prazos processuais não esperam. Agende sua consultoria inicial e
             saia com um diagnóstico claro do seu caso e dos próximos passos,
             sem enrolação e com atendimento direto do Dr. Lucas.

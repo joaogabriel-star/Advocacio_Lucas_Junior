@@ -44,13 +44,13 @@ export default function Hero() {
             </Button>
           </div>
 
-          <dl className="mt-10 grid gap-6 border-t border-line pt-6 md:grid-cols-3">
+          <dl className="mt-10 grid grid-cols-3 gap-3 border-t border-line pt-6 sm:gap-6">
             {credentials.map((item) => (
               <div key={item.label}>
-                <dt className="font-display text-xl font-bold text-navy">
+                <dt className="font-display text-base font-bold text-navy sm:text-xl">
                   {item.value}
                 </dt>
-                <dd className="mt-1 text-sm text-mist">{item.label}</dd>
+                <dd className="mt-1 text-xs text-mist sm:text-sm">{item.label}</dd>
               </div>
             ))}
           </dl>

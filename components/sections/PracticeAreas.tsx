@@ -93,7 +93,8 @@ export default function PracticeAreas() {
           </div>
         </div>
 
-        <Reveal className="mt-16">
+        {/* gráfico de distribuição de atuação — só no computador, ocupa espaço demais no celular */}
+        <Reveal className="mt-16 hidden md:block">
           <AreaChart />
         </Reveal>
 
