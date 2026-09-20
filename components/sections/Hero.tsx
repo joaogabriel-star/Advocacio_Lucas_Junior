@@ -3,26 +3,33 @@ import { site } from "@/lib/site-data";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 
-// navy-dark (#0D2239) em curva S: derivada ~zero nas duas pontas, então nem
-// o lado bone nem a chegada no painel mostram aresta. Rampa linear vira mancha.
-// Mais stops e faixa mais larga (ver uso abaixo) = transição ainda mais gradual.
+// navy-dark (#0D2239) em curva "smootherstep" (6t^5-15t^4+10t^3): 1ª e 2ª
+// derivadas nulas nas duas pontas, não só a 1ª — zero aceleração perceptível
+// na entrada e na chegada. 22 paradas para não deixar salto entre elas.
 const FADE_TO_NAVY =
   "linear-gradient(to right," +
   "rgba(13,34,57,0) 0%," +
-  "rgba(13,34,57,0.004) 8%," +
-  "rgba(13,34,57,0.016) 18%," +
-  "rgba(13,34,57,0.045) 28%," +
-  "rgba(13,34,57,0.095) 38%," +
-  "rgba(13,34,57,0.17) 47%," +
-  "rgba(13,34,57,0.28) 56%," +
-  "rgba(13,34,57,0.40) 64%," +
-  "rgba(13,34,57,0.53) 71%," +
-  "rgba(13,34,57,0.65) 78%," +
-  "rgba(13,34,57,0.76) 84%," +
-  "rgba(13,34,57,0.85) 89%," +
-  "rgba(13,34,57,0.92) 93%," +
-  "rgba(13,34,57,0.97) 96.5%," +
-  "rgba(13,34,57,0.995) 99%," +
+  "rgba(13,34,57,0.0009) 4.5%," +
+  "rgba(13,34,57,0.0065) 9.1%," +
+  "rgba(13,34,57,0.0205) 13.6%," +
+  "rgba(13,34,57,0.0449) 18.2%," +
+  "rgba(13,34,57,0.081) 22.7%," +
+  "rgba(13,34,57,0.1289) 27.3%," +
+  "rgba(13,34,57,0.188) 31.8%," +
+  "rgba(13,34,57,0.2567) 36.4%," +
+  "rgba(13,34,57,0.3333) 40.9%," +
+  "rgba(13,34,57,0.4152) 45.5%," +
+  "rgba(13,34,57,0.5) 50%," +
+  "rgba(13,34,57,0.5848) 54.5%," +
+  "rgba(13,34,57,0.6667) 59.1%," +
+  "rgba(13,34,57,0.7433) 63.6%," +
+  "rgba(13,34,57,0.812) 68.2%," +
+  "rgba(13,34,57,0.8711) 72.7%," +
+  "rgba(13,34,57,0.919) 77.3%," +
+  "rgba(13,34,57,0.9551) 81.8%," +
+  "rgba(13,34,57,0.9795) 86.4%," +
+  "rgba(13,34,57,0.9935) 90.9%," +
+  "rgba(13,34,57,0.9991) 95.5%," +
   "rgba(13,34,57,1) 100%)";
 
 const credentials = [
@@ -48,7 +55,7 @@ export default function Hero() {
       */}
       <span
         aria-hidden
-        className="absolute inset-y-0 right-[40%] hidden w-32 md:block lg:w-72 xl:right-[38%] xl:w-[26rem]"
+        className="absolute inset-y-0 right-[40%] hidden w-40 md:block lg:w-80 xl:right-[38%] xl:w-[30rem]"
         style={{ backgroundImage: FADE_TO_NAVY }}
       />
 
