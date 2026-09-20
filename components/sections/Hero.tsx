@@ -5,19 +5,24 @@ import Reveal from "@/components/ui/Reveal";
 
 // navy-dark (#0D2239) em curva S: derivada ~zero nas duas pontas, então nem
 // o lado bone nem a chegada no painel mostram aresta. Rampa linear vira mancha.
+// Mais stops e faixa mais larga (ver uso abaixo) = transição ainda mais gradual.
 const FADE_TO_NAVY =
   "linear-gradient(to right," +
   "rgba(13,34,57,0) 0%," +
-  "rgba(13,34,57,0.012) 12%," +
-  "rgba(13,34,57,0.05) 24%," +
-  "rgba(13,34,57,0.13) 36%," +
-  "rgba(13,34,57,0.26) 48%," +
-  "rgba(13,34,57,0.43) 60%," +
-  "rgba(13,34,57,0.58) 70%," +
-  "rgba(13,34,57,0.73) 80%," +
-  "rgba(13,34,57,0.85) 88%," +
-  "rgba(13,34,57,0.93) 94%," +
-  "rgba(13,34,57,0.98) 97.5%," +
+  "rgba(13,34,57,0.004) 8%," +
+  "rgba(13,34,57,0.016) 18%," +
+  "rgba(13,34,57,0.045) 28%," +
+  "rgba(13,34,57,0.095) 38%," +
+  "rgba(13,34,57,0.17) 47%," +
+  "rgba(13,34,57,0.28) 56%," +
+  "rgba(13,34,57,0.40) 64%," +
+  "rgba(13,34,57,0.53) 71%," +
+  "rgba(13,34,57,0.65) 78%," +
+  "rgba(13,34,57,0.76) 84%," +
+  "rgba(13,34,57,0.85) 89%," +
+  "rgba(13,34,57,0.92) 93%," +
+  "rgba(13,34,57,0.97) 96.5%," +
+  "rgba(13,34,57,0.995) 99%," +
   "rgba(13,34,57,1) 100%)";
 
 const credentials = [
@@ -43,7 +48,7 @@ export default function Hero() {
       */}
       <span
         aria-hidden
-        className="absolute inset-y-0 right-[40%] hidden w-24 md:block lg:w-56 xl:right-[38%] xl:w-80"
+        className="absolute inset-y-0 right-[40%] hidden w-32 md:block lg:w-72 xl:right-[38%] xl:w-[26rem]"
         style={{ backgroundImage: FADE_TO_NAVY }}
       />
 
