@@ -44,7 +44,7 @@ export default function Hero() {
             </Button>
           </div>
 
-          <dl className="mt-10 grid gap-6 border-t border-line pt-6 sm:grid-cols-3">
+          <dl className="mt-10 grid gap-6 border-t border-line pt-6 md:grid-cols-3">
             {credentials.map((item) => (
               <div key={item.label}>
                 <dt className="font-display text-xl font-bold text-navy">
