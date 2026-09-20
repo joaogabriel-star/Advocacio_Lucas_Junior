@@ -3,6 +3,23 @@ import { site } from "@/lib/site-data";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 
+// navy-dark (#0D2239) em curva S: derivada ~zero nas duas pontas, então nem
+// o lado bone nem a chegada no painel mostram aresta. Rampa linear vira mancha.
+const FADE_TO_NAVY =
+  "linear-gradient(to right," +
+  "rgba(13,34,57,0) 0%," +
+  "rgba(13,34,57,0.012) 12%," +
+  "rgba(13,34,57,0.05) 24%," +
+  "rgba(13,34,57,0.13) 36%," +
+  "rgba(13,34,57,0.26) 48%," +
+  "rgba(13,34,57,0.43) 60%," +
+  "rgba(13,34,57,0.58) 70%," +
+  "rgba(13,34,57,0.73) 80%," +
+  "rgba(13,34,57,0.85) 88%," +
+  "rgba(13,34,57,0.93) 94%," +
+  "rgba(13,34,57,0.98) 97.5%," +
+  "rgba(13,34,57,1) 100%)";
+
 const credentials = [
   { value: site.oab, label: "Inscrição na Ordem" },
   { value: "+5 anos", label: "Atuação em Direito Imobiliário" },
@@ -19,22 +36,31 @@ export default function Hero() {
         O fundo escuro do estúdio se funde com o painel navy, então a foto
         não vira um retângulo colado sobre o bege — ela é o próprio painel.
       */}
-      <div className="absolute inset-y-0 right-0 hidden w-[46%] md:block lg:w-[44%] xl:w-[42%]">
+      {/*
+        Rampa longa e suave do bone até o navy: quase invisível nos primeiros
+        45% (para não sujar o texto) e fechando no navy sólido exatamente onde
+        o painel começa — sem linha seca na junção.
+      */}
+      <span
+        aria-hidden
+        className="absolute inset-y-0 right-[40%] hidden w-24 md:block lg:w-56 xl:right-[38%] xl:w-80"
+        style={{ backgroundImage: FADE_TO_NAVY }}
+      />
+
+      <div className="absolute inset-y-0 right-0 hidden w-[40%] md:block xl:w-[38%]">
         <div className="absolute inset-0 bg-navy-dark" />
         <Image
           src="/images/lucas-retrato.avif"
           alt={site.lawyer.fullName}
           fill
           priority
-          sizes="46vw"
+          sizes="40vw"
           className="object-cover object-[50%_20%]"
         />
-        {/* dissolve a borda esquerda da foto dentro do painel */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/55 to-transparent" />
         {/* unifica a temperatura da foto com o azul da marca */}
         <div className="absolute inset-0 bg-navy/20 mix-blend-multiply" />
-        {/* único acento: o fio dourado na junção claro/escuro */}
-        <span aria-hidden className="absolute inset-y-0 left-0 w-px bg-gold/50" />
+        {/* dissolve a borda esquerda da foto: fecha em navy sólido, igual à rampa */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/55 to-transparent" />
       </div>
 
       {/* ---------- retrato no mobile: sangra de ponta a ponta ---------- */}
@@ -61,7 +87,7 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-6xl px-4 pb-14 pt-10 sm:px-6 md:py-20 lg:py-28">
         {/* ---------- texto ---------- */}
-        <Reveal delay={80} className="max-w-xl md:max-w-[26rem] lg:max-w-[30rem] xl:max-w-lg">
+        <Reveal delay={80} className="max-w-xl md:max-w-[25rem] lg:max-w-[26rem] xl:max-w-lg">
           <div className="flex items-center gap-3">
             <span className="h-px w-10 bg-gold" />
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
@@ -69,7 +95,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="mt-6 font-display text-[2.1rem] font-bold leading-[1.12] text-navy sm:text-[2.4rem] md:text-[2.2rem] lg:text-[2.7rem] xl:text-[2.9rem]">
+          <h1 className="mt-6 font-display text-[2.1rem] font-bold leading-[1.12] text-navy sm:text-[2.5rem] md:text-[2rem] lg:text-[2.5rem] xl:text-[2.9rem]">
             {positioning.headline}
           </h1>
 
@@ -87,7 +113,7 @@ export default function Hero() {
           <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-line pt-6 sm:gap-6">
             {credentials.map((item) => (
               <div key={item.label}>
-                <dt className="font-display text-base font-bold text-navy sm:text-xl">
+                <dt className="font-display text-base font-bold text-navy sm:text-xl md:text-[1.05rem] lg:text-xl">
                   {item.value}
                 </dt>
                 <dd className="mt-1 text-xs leading-snug text-mist sm:text-sm">
