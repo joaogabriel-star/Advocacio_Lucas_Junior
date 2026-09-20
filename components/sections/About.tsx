@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { site } from "@/lib/site-data";
-import { whatsappLink } from "@/lib/whatsapp";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 
@@ -69,12 +68,7 @@ export default function About() {
             </ul>
           </Reveal>
           <Reveal delay={260}>
-            <Button
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8"
-            >
+            <Button href="#agendar" className="mt-8">
               Conversar com o Dr. Lucas
             </Button>
           </Reveal>

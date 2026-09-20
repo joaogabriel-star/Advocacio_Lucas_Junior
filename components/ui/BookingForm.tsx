@@ -77,6 +77,9 @@ export default function BookingForm() {
 
       setLastValues(values);
       setStatus("success");
+      // Abre o WhatsApp automaticamente com as respostas já preenchidas —
+      // é assim que o pedido chega de verdade pro Dr. Lucas.
+      window.open(whatsappLinkFromForm(values), "_blank", "noopener,noreferrer");
     } catch {
       setErrorMsg(
         "Não foi possível enviar agora. Tente pelo WhatsApp enquanto isso.",
@@ -90,8 +93,8 @@ export default function BookingForm() {
       <div className="rounded-md border border-line bg-paper p-8 text-center">
         <h3 className="font-display text-2xl font-bold text-navy">Pedido recebido!</h3>
         <p className="mt-2 text-mist">
-          Retornaremos em breve para confirmar. Se preferir uma resposta mais
-          rápida, fale agora pelo WhatsApp.
+          Abrimos o WhatsApp numa nova aba com suas respostas prontas — é só
+          conferir e enviar. Se não abriu automaticamente, clique abaixo.
         </p>
         <a
           href={whatsappLinkFromForm(lastValues ?? {})}
@@ -99,7 +102,7 @@ export default function BookingForm() {
           rel="noopener noreferrer"
           className="mt-5 inline-block rounded-md bg-accent px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent-dark"
         >
-          Confirmar pelo WhatsApp
+          Abrir o WhatsApp
         </a>
       </div>
     );

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site-data";
-import { whatsappLink } from "@/lib/whatsapp";
 import { Icon } from "@/components/ui/icons";
 import MobileMenu from "@/components/layout/MobileMenu";
 
@@ -24,12 +23,7 @@ export default function Header() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 text-xs">
           <span>{site.contact.city} · Atendimento presencial e online</span>
           <div className="flex items-center gap-5">
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gold-light"
-            >
+            <a href="#agendar" className="hover:text-gold-light">
               {site.contact.phoneDisplay}
             </a>
             <a
@@ -94,11 +88,7 @@ export default function Header() {
           >
             Agende sua consulta
           </a>
-          <MobileMenu
-            navLinks={navLinks}
-            socialLinks={socialLinks}
-            whatsappHref={whatsappLink()}
-          />
+          <MobileMenu navLinks={navLinks} socialLinks={socialLinks} />
         </div>
       </div>
     </header>

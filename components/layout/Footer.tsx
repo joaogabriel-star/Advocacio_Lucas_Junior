@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { site } from "@/lib/site-data";
-import { whatsappLink } from "@/lib/whatsapp";
 
 export default function Footer() {
   return (
@@ -20,12 +19,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm">
-          <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gold-light"
-          >
+          <a href="#agendar" className="hover:text-gold-light">
             {site.contact.phoneDisplay}
           </a>
           <a

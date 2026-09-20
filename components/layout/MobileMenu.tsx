@@ -11,11 +11,9 @@ type SocialLink = { href: string; label: string; icon: IconName };
 export default function MobileMenu({
   navLinks,
   socialLinks,
-  whatsappHref,
 }: {
   navLinks: NavLink[];
   socialLinks: SocialLink[];
-  whatsappHref: string;
 }) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -122,15 +120,6 @@ export default function MobileMenu({
                 </a>
               ))}
             </div>
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="block rounded-md border border-accent py-3 text-center text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-paper"
-            >
-              Falar no WhatsApp
-            </a>
             <a
               href="#agendar"
               onClick={() => setOpen(false)}

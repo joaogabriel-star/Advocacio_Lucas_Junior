@@ -1,13 +1,9 @@
 "use client";
 
-import { whatsappLink } from "@/lib/whatsapp";
-
 export default function WhatsAppFloatingButton() {
   return (
     <a
-      href={whatsappLink()}
-      target="_blank"
-      rel="noopener noreferrer"
+      href="#agendar"
       aria-label="Falar no WhatsApp"
       className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-lg shadow-black/20 transition-transform hover:scale-105 animate-pulseSoft"
     >
