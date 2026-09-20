@@ -42,24 +42,24 @@ export default function PracticeAreas() {
             </h3>
           </Reveal>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4">
             {site.practiceAreas.map((area, i) => (
               <Reveal key={area.slug} delay={i * 60}>
-                <details className="group h-full border-t-2 border-navy bg-bone p-7 transition-colors open:border-gold">
-                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
+                <details className="group h-full border-t-2 border-navy bg-bone p-4 transition-colors open:border-gold sm:p-7">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-2 sm:gap-4">
                     <div>
-                      <h4 className="font-display text-xl font-bold text-navy">
+                      <h4 className="font-display text-sm font-bold text-navy sm:text-xl">
                         {area.title}
                       </h4>
-                      <p className="mt-3 text-base leading-relaxed text-ink">
+                      <p className="mt-2 text-xs leading-relaxed text-ink sm:mt-3 sm:text-base">
                         {area.brief}
                       </p>
                     </div>
-                    <span className="mt-1 shrink-0 text-xl leading-none text-accent transition-transform group-open:rotate-45">
+                    <span className="mt-1 shrink-0 text-lg leading-none text-accent transition-transform group-open:rotate-45 sm:text-xl">
                       +
                     </span>
                   </summary>
-                  <p className="mt-3 text-base leading-relaxed text-mist">
+                  <p className="mt-2 text-xs leading-relaxed text-mist sm:mt-3 sm:text-base">
                     {area.description}
                   </p>
                 </details>
