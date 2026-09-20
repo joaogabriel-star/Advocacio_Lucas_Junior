@@ -4,10 +4,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background-color: #ffffff;
+  overflow-x: hidden;
 }
 
 /* Entrada suave das seções ao rolar — único efeito de movimento do site. */

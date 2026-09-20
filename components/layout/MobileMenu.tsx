@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { site } from "@/lib/site-data";
 import { Icon, IconName } from "@/components/ui/icons";
 
@@ -17,6 +18,10 @@ export default function MobileMenu({
   whatsappHref: string;
 }) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Só sabemos que document.body existe depois de montar no cliente.
+  useEffect(() => setMounted(true), []);
 
   // Trava o scroll da página enquanto o menu está aberto e fecha no Esc.
   useEffect(() => {
@@ -41,10 +46,12 @@ export default function MobileMenu({
         <Icon name="menu" className="h-6 w-6" />
       </button>
 
-      <div
-        className={`fixed inset-0 z-50 ${open ? "visible" : "invisible"}`}
-        aria-hidden={!open}
-      >
+      {mounted &&
+        createPortal(
+          <div
+            className={`fixed inset-0 z-50 overflow-hidden ${open ? "visible" : "invisible"}`}
+            aria-hidden={!open}
+          >
         {/* fundo escurecido */}
         <button
           type="button"
@@ -131,7 +138,9 @@ export default function MobileMenu({
             </a>
           </div>
         </div>
-      </div>
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
