@@ -3,6 +3,7 @@ import AreaChart from "@/components/ui/AreaChart";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import BackdropGraphic from "@/components/ui/BackdropGraphic";
+import FullServiceList from "@/components/ui/FullServiceList";
 
 export default function PracticeAreas() {
   const { positioning } = site;
@@ -77,20 +78,7 @@ export default function PracticeAreas() {
             </h3>
           </Reveal>
 
-          <div className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-            {site.fullServiceAreas.map((area, i) => (
-              <Reveal key={area.title} delay={i * 50}>
-                <div className="border-t border-line pt-5">
-                  <h4 className="font-display text-lg font-bold text-navy">
-                    {area.title}
-                  </h4>
-                  <p className="mt-1.5 text-sm leading-relaxed text-mist">
-                    {area.brief}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <FullServiceList areas={site.fullServiceAreas} />
         </div>
 
         {/* gráfico de distribuição de atuação — só no computador, ocupa espaço demais no celular */}
