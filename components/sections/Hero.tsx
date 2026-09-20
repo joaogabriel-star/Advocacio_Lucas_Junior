@@ -15,19 +15,23 @@ export default function Hero() {
   return (
     <section className="border-b border-line bg-bone">
       <div className="md:grid md:grid-cols-2 md:items-stretch">
-        {/* foto — full-bleed até a borda da tela, em cima no celular */}
-        <div className="group relative aspect-square w-full overflow-hidden md:order-2 md:aspect-auto md:min-h-[600px]">
+        {/* foto — recorte sem fundo escuro, integrado ao tom bone do site */}
+        <div className="group relative aspect-square w-full overflow-hidden bg-bone md:order-2 md:aspect-auto md:min-h-[600px]">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute right-[8%] top-[10%] hidden h-32 w-32 rounded-full border border-gold/30 md:block"
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute bottom-[10%] left-[8%] hidden h-20 w-20 border border-gold/40 md:block"
+          />
           <Image
-            src="/images/lucas-hero-novo.jpeg"
+            src="/images/lucas-hero-novo.jpg"
             alt={site.lawyer.fullName}
             fill
             priority
             sizes="(min-width: 768px) 50vw, 100vw"
-            className="object-cover object-top grayscale transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.03]"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bone/70 via-transparent to-transparent md:bg-gradient-to-l md:from-bone/40 md:via-transparent md:to-transparent"
+            className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03] md:object-center"
           />
         </div>
 
