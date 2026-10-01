@@ -37,15 +37,23 @@ export default function Header() {
       </div>
 
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/images/logo-lm-dark.png"
+            src="/images/logo-lm-mark.jpg"
             alt={site.brand}
-            width={124}
-            height={52}
+            width={44}
+            height={44}
             priority
-            className="h-11 w-auto"
+            className="h-10 w-10 rounded-md sm:h-11 sm:w-11"
           />
+          <span className="leading-tight">
+            <span className="block font-display text-base font-bold text-navy sm:text-lg">
+              {site.name}
+            </span>
+            <span className="block text-[10px] uppercase tracking-[0.16em] text-gold sm:text-[11px]">
+              Advocacia &amp; Consultoria
+            </span>
+          </span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm md:flex">
           {navLinks.map((link) => (
